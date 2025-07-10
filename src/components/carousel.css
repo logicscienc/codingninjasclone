@@ -1,0 +1,137 @@
+
+.carousel-container {
+  background-color: #fff;
+  padding: 3rem 0;
+}
+
+.carousel-header {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.carousel-header h2 {
+  font-size: 1.75rem;
+  font-weight: bold;
+}
+
+.carousel-header button {
+  color: #f97316;
+  font-weight: 600;
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.carousel-wrapper {
+  max-width: 1000px;
+  margin: 2rem auto 0;
+  overflow: hidden;
+   position: relative;
+   /* position: relative; */
+  z-index: 1;
+}
+
+.carousel-track {
+  display: flex;
+  gap: 2rem;
+  animation: scrollLeft 30s linear infinite;
+  width: max-content;
+  position: relative;
+  z-index: 1;
+}
+
+.carousel-card {
+  width: 160px;
+  text-align: center;
+  position: relative;
+}
+
+.profile-img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #ccc;
+}
+
+.company-logo {
+  width: 40px;
+  height: 40px;
+  margin-top: 0.5rem;
+  object-fit: contain;
+}
+
+.company-name {
+  font-weight: 600;
+  margin-top: 0.5rem;
+}
+
+.stream {
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.college {
+  font-size: 0.75rem;
+  color: #aaa;
+}
+
+.tooltip-bubble {
+  position: absolute;
+  bottom: -125px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: black;
+  color: white;
+  padding: 0.75rem;
+  width: 200px;
+  border-radius: 10px;
+  font-size: 0.85rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+  z-index: 10;
+  text-align: left;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+.tooltip-name {
+  font-weight: bold;
+  margin-bottom: 4px;
+}
+
+.tooltip-job {
+  font-size: 0.85rem;
+  margin-bottom: 5px;
+}
+
+.tooltip-bubble a {
+  color: #3b82f6;
+  text-decoration: underline;
+  font-size: 0.85rem;
+}
+
+/* Arrow (tail) of the tooltip */
+.tooltip-arrow {
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-bottom: 10px solid black;
+}
+
+@keyframes scrollLeft {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}

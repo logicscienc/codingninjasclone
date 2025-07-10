@@ -8,11 +8,21 @@ export default {
     extend: {
       animation: {
         slideInRight: 'slideInRight 0.3s ease-out forwards',
+        sweep: 'sweep 4s ease-in-out infinite',
+        scrollX: 'scrollX 30s linear infinite', // ✅ Added scrollX animation
       },
       keyframes: {
         slideInRight: {
-          '0%': { transform: 'translateX(100%)' },
-          '100%': { transform: 'translateX(0)' },
+          '0%': { transform: 'translateX(0)' },
+          '100%': { transform: 'translateX(-50%)' },
+        },
+        sweep: {
+          '0%, 100%': { backgroundPosition: '200% center' },
+          '50%': { backgroundPosition: '-200% center' },
+        },
+        scrollX: { // ✅ Added scrollX keyframes
+          '0%': { transform: 'translateX(0)' },
+          '100%': { transform: 'translateX(-50%)' },
         },
       },
       backgroundImage: {
@@ -22,4 +32,6 @@ export default {
   },
   plugins: [],
 }
+
+
 
