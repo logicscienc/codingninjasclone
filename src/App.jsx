@@ -5,6 +5,8 @@ import HighlightsSection from './components/HighlightsSection';
 import AlumniSection from './components/AlumniSection';
 import NinjasAtTopCompanies from './components/NinjasAtTopCompanies';
 import SuccessStories from './components/SuccessStories';
+import LearningModel from './components/LearningModel';
+import Stuck from './components/Stuck';
 import Footer1 from './components/Footer1';
 import Footer2 from './components/Footer2';
 
@@ -19,6 +21,8 @@ const App = () => {
       <AlumniSection/>
       <NinjasAtTopCompanies/>
       <SuccessStories/>
+      <LearningModel/>
+      <Stuck/>
       <Footer1/>
       <Footer2/>
       
