@@ -1,0 +1,274 @@
+
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+  text-align: center;
+  font-family: Arial, sans-serif;
+}
+
+.title {
+  font-size: 24px;
+  margin: 4rem 0 1rem;
+}
+
+.button-container {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin: 3rem 0;
+}
+
+.brochure-btn {
+  background-color: #000;
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border: 2px solid black;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: all 0.3s ease;
+  box-sizing: border-box;
+}
+
+.brochure-btn:hover,
+.brochure-btn:active {
+  background-color: white;
+  color: black;
+    border: 2px solid black; 
+   
+  
+}
+
+.subtitle {
+  font-size: 20px;
+  margin: 2rem 0 1.5rem;
+}
+
+/* Wrapping container for scrolling rows */
+.carousel-wrapper {
+  overflow: hidden;
+  width: 100%;
+  margin-bottom: 1.5rem;
+}
+
+/* The track (row) that moves */
+.carousel-track {
+  display: flex;
+  width: max-content;
+  gap: 1rem;
+}
+
+/* Animations */
+.scroll-left,
+.scroll-right {
+  animation: scrollLeft 30s linear infinite;
+}
+
+@keyframes scrollLeft {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+
+/* Card styles */
+.card {
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  padding: 1rem;
+  min-width: 250px;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-shrink: 0;
+}
+.profile {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #ccc;
+}
+
+
+.details-column {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.company {
+  height: 50px; /* increased */
+  width: auto;
+  object-fit: contain;
+}
+
+.hike {
+  background-color: #eef2ff;
+  color: #4f46e5;
+  font-size: 16px; /* increased */
+  font-weight: 700;
+  padding: 6px 12px;
+  border-radius: 12px;
+}
+
+/* Overlay and Sliding Form */
+.overlay {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.4);
+  z-index: 1000;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.form-container {
+  width: 500px;
+  height: 100%;
+  background: white;
+  padding: 2rem;
+  overflow-y: auto;
+  animation: slideIn 0.4s ease forwards;
+  position: relative;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+label {
+  display: block;
+  font-size: 13px; 
+  margin-bottom: 1rem;
+  /* font-weight: 500; */
+  color: #333;
+  text-align: left; 
+   margin-bottom: 0.5rem;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"] {
+  width: 100%;
+  padding: 12px;
+  margin-top: 4px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  font-size: 15px;
+  outline: none;
+  transition: 0.3s ease;
+}
+
+input:focus {
+  border-color: #4f46e5;
+  box-shadow: 0 0 0 2px rgba(79, 70, 229, 0.2);
+}
+
+
+.radio-group {
+  display: flex;
+  flex-direction: column;
+   gap: 6px;
+  margin-top: 0.5rem;
+}
+
+.radio-group label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: #f5f5f5;
+  padding:6px 10px;
+  border-radius: 6px;
+  font-weight: 500;
+   font-size: 13px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.radio-group label:hover {
+  background: #e2e8f0;
+}
+
+.radio-group input[type="radio"] {
+  accent-color: #4f46e5;
+}
+.form-container h2 {
+   font-size: 18px;              
+  font-weight: 500;             
+  color: #333;                  
+  margin-bottom: 1.5rem;
+  text-align: left;
+}
+
+label {
+  font-size: 14px;
+  font-weight: 600;
+  color: #333;
+}
+.submit-btn {
+  width: 100%;
+  background: #ff6600;
+  border: none;
+  padding: 12px;
+  color: white;
+  font-weight: 600;
+  font-size: 15px;
+  margin-top: 1.5rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.submit-btn:hover {
+  background: #e65c00;
+}
+
+
+.error {
+  color: red;
+  font-size: 0.85rem;
+  margin-top: 4px;
+}
+
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 2rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #333;
+}
+.privacy-text {
+  font-size: 11px;
+  color: #555;
+  margin-top: 10px;
+  line-height: 1.4;
+}
+.privacy-text a {
+  color: #4f46e5;
+  text-decoration: none;
+}
+.privacy-text a:hover {
+  text-decoration: underline;
+}
+
+
+

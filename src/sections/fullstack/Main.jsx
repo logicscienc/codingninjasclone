@@ -5,15 +5,99 @@ import hand from "./images/hand.webp";
 import stanford from "../../assets/stanford.png";
 import one from "../../assets/one.png";
 import placement from "../../assets/placement.png";
+import { toast } from "react-toastify";
 
 const Main = () => {
   const [experience, setExperience] = useState("");
   const [showDrawer, setShowDrawer] = useState(false);
+  const [selectedTime, setSelectedTime] = useState("");
+  const [graduationYear, setGraduationYear] = useState("");
+  const [formError, setFormError] = useState("");
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState("");
+  const [mainFormError, setMainFormError] = useState("");
+  const [fathersOccupation, setFathersOccupation] = useState("");
+  const [isBooking, setIsBooking] = useState(false);
 
-   const handleExperienceChange = (value) => {
-     setExperience(value);
-     
-   };
+  const handleExperienceChange = (value) => {
+    setExperience(value);
+  };
+
+  const timeSlotsByExperience = {
+    tech: [
+      "Fri 03:00 PM",
+      "Fri 06:00 PM",
+      "08:00 PM",
+      "Sat 03:00 PM",
+      "Sat 06:00 PM",
+    ],
+    "non-tech": [
+      "Sat 06:00 AM",
+      "Sat  08:00 PM",
+      " 03:00 AM",
+      "Sun 06:00 PM",
+      "Sun 08:00 PM",
+    ],
+    "final-year": [
+      "Sat 06:00 PM",
+      "Sat 08:00 PM",
+      "03:00 PM",
+      "Sun 06:00 PM",
+      "Sun 08:00  pm",
+    ],
+    "pre-final": ["Sun 05:00 PM", "Mon 05:00 PM"],
+    others: [
+      "Sat 06:00 PM",
+      "Sat 08:00 PM",
+      " 03:00 PM",
+      "Sun 06:00 AM",
+      "Sun 08:00 PM",
+    ],
+  };
+  const selectedSlots = timeSlotsByExperience[experience] || [];
+
+  const slotDatesByExperience = {
+    tech: ["Friday, 11 Jul 2025", "Saturday, 12 Jul 2025"],
+    "non-tech": ["Saturday, 12 Jul 2025", "Sunday, 13 Jul 2025"],
+    "final-year": ["Saturday, 12 Jul 2025", "Sunday, 13 Jul 2025"],
+    "pre-final": ["Sunday, 13 Jul 2025", "Monday, 14 Jul 2025"],
+    others: ["Saturday, 12 Jul 2025", "Sunday, 13 Jul 2025"],
+  };
+  const getSlotsByDay = () => {
+    const dates = slotDatesByExperience[experience] || [];
+    const slots = selectedSlots;
+
+    const grouped = {};
+    dates.forEach((date, i) => {
+      grouped[date] = slots.filter((_, index) => index % 2 === i % 2);
+    });
+
+    return grouped;
+  };
+
+  React.useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (e.key === "Escape") {
+        setShowDrawer(false);
+      }
+    };
+    document.addEventListener("keydown", handleKeyDown);
+    return () => document.removeEventListener("keydown", handleKeyDown);
+  }, []);
+
+  // React.useEffect(() => {
+  //   const handleKeyDown = (e) => {
+  //     if (e.key === "Escape") {
+  //       setShowDrawer(false);
+  //     }
+  //   };
+
+  //   document.addEventListener("keydown", handleKeyDown);
+  //   return () => {
+  //     document.removeEventListener("keydown", handleKeyDown);
+  //   };
+  // }, []);
 
   return (
     <section className="bg-gradient-to-br from-[#0e121d] via-[#111827] to-[#1e293b] text-white">
@@ -84,11 +168,30 @@ const Main = () => {
 
           <form
             onSubmit={(e) => {
-              e.preventDefault(); 
-              if (experience === "tech") {
-                setShowDrawer(true); 
+              e.preventDefault();
+
+              if (!name.trim() || !email.trim() || !phone.trim()) {
+                setMainFormError("Please fill in all the required fields.");
+                return;
+              }
+
+              if (!/^\d{10}$/.test(phone)) {
+                setMainFormError("Phone number must be exactly 10 digits.");
+                return;
+              }
+
+              setMainFormError("");
+
+              if (
+                experience === "tech" ||
+                experience === "non-tech" ||
+                experience === "final-year" ||
+                experience === "pre-final" ||
+                experience === "others"
+              ) {
+                setShowDrawer(true);
               } else {
-                alert("Webinar booked successfully!"); 
+                alert("Webinar booked successfully!");
               }
             }}
             className="space-y-4 text-sm"
@@ -98,6 +201,8 @@ const Main = () => {
               <input
                 type="text"
                 placeholder="Your name"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
                 className="w-full border border-gray-300 rounded-md px-4 py-2 mt-1"
               />
             </div>
@@ -106,6 +211,8 @@ const Main = () => {
               <input
                 type="email"
                 placeholder="you@example.com"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
                 className="w-full border border-gray-300 rounded-md px-4 py-2 mt-1"
               />
             </div>
@@ -116,6 +223,8 @@ const Main = () => {
                 <input
                   type="text"
                   placeholder="Your phone number"
+                  value={phone}
+                  onChange={(e) => setPhone(e.target.value)}
                   className="w-full px-3 py-2 outline-none"
                 />
               </div>
@@ -182,6 +291,10 @@ const Main = () => {
               </div>
             </div>
 
+            {mainFormError && (
+              <p className="text-red-500 text-sm -mt-2">{mainFormError}</p>
+            )}
+
             <button
               type="submit"
               className="w-full bg-orange-500 hover:bg-orange-600 text-white py-3 rounded-md font-semibold mt-4"
@@ -205,9 +318,17 @@ const Main = () => {
         </div>
       </div>
 
+      {/* Overlay when drawer is open */}
+      {showDrawer && (
+        <div
+          className="fixed inset-0  bg-opacity-50 backdrop-blur-sm z-50 transition-opacity duration-300"
+          onClick={() => setShowDrawer(false)}
+        ></div>
+      )}
+
       {/* Slide-In Drawer */}
       <div
-        className={`fixed top-0 right-0 h-screen w-[420px] bg-white shadow-2xl transform transition-transform duration-300 ease-in-out z-50 ${
+        className={`fixed top-0 right-0 h-screen w-[520px] bg-white shadow-2xl transform transition-transform duration-300 ease-in-out z-50 flex flex-col ${
           showDrawer ? "translate-x-0" : "translate-x-full"
         }`}
       >
@@ -225,44 +346,122 @@ const Main = () => {
         </div>
 
         {/* Drawer Content */}
-        <div className="p-6 space-y-6 overflow-y-auto h-[calc(100vh-64px)] text-black text-sm">
+        <div className="p-6 space-y-6 overflow-y-auto h-[calc(100vh-64px-72px)] text-black text-sm ">
           <div>
             <p className="font-semibold text-lg mb-2">
               Select a time slot <span className="text-red-500">*</span>
             </p>
 
-            <p className="text-sm mb-2 mt-4 text-gray-500">Friday, 11 Jul 2025</p>
-            <div className="flex gap-3 flex-wrap mb-4">
-              <button className=" font-semibold mt-4 px-4 py-2 rounded-md">08:00 PM</button>
-            </div>
-
-            <p className="text-sm mb-2 text-gray-500">Saturday, 12 Jul 2025</p>
-            <div className="flex gap-3 flex-wrap">
-              <button className=" font-semibold mt-4 px-4 py-2 rounded-md">03:00 PM</button>
-              <button className=" font-semibold mt-4 px-4 py-2 rounded-md">06:00 PM</button>
-              <button className=" font-semibold mt-4 px-4 py-2 rounded-md">08:00 PM</button>
-            </div>
+            {Object.entries(getSlotsByDay()).map(([day, slots]) => (
+              <div key={day}>
+                <p className="text-sm mb-2 mt-4 text-gray-500">{day}</p>
+                <div className="flex gap-3 flex-wrap mb-4">
+                  {slots.map((slot) => (
+                    <button
+                      key={slot}
+                      type="button"
+                      className={`font-semibold mt-2 px-4 py-2 rounded-md border ${
+                        selectedTime === slot
+                          ? "border-green-500"
+                          : "border-gray-300"
+                      }`}
+                      onClick={() =>
+                        setSelectedTime(selectedTime === slot ? "" : slot)
+                      }
+                    >
+                      {slot}
+                    </button>
+                  ))}
+                </div>
+              </div>
+            ))}
           </div>
 
           {/* Graduation Year Dropdown */}
-          <div className="pt-6">
-            <label className="block font-semibold mb-2 text-lg">Graduation Year</label>
-            <select className="w-full border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:border-blue-500">
-              <option>Select Graduation Year</option>
-              <option>2025</option>
-              <option>2024</option>
-              <option>2023</option>
-              <option>2022</option>
-             
-
-            </select>
-          </div>
+          {experience === "tech" || experience === "non-tech" ? (
+            <div className="pt-6">
+              <label className="block font-semibold mb-2 text-lg">
+                Graduation Year
+              </label>
+              <select
+                value={graduationYear}
+                onChange={(e) => setGraduationYear(e.target.value)}
+                className="w-full border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:border-blue-500"
+              >
+                <option>Select Graduation Year</option>
+                <option>2025</option>
+                <option>2024</option>
+                <option>2023</option>
+                <option>2022</option>
+              </select>
+            </div>
+          ) : (
+            <div className="pt-6">
+              <label className="block font-semibold mb-2 text-lg">
+                Father's Occupation
+              </label>
+              <input
+                type="text"
+                value={fathersOccupation}
+                onChange={(e) => setFathersOccupation(e.target.value)}
+                placeholder="e.g., Farmer, Engineer, Business/Self Employed, Doctor/Pharmacy/ Medical, Teacher/Professor/ Education"
+                className="w-full border border-gray-300 rounded-md px-4 py-2"
+              />
+            </div>
+          )}
         </div>
 
+        {formError && <p className="text-red-500 text-sm mb-2">{formError}</p>}
+
         {/* Footer Button */}
-        <div className="p-4 border-t">
-          <button className="w-full bg-orange-500 hover:bg-orange-600 text-white py-3 rounded-md font-semibold">
-            Book webinar
+        <div className="p-4 border-t ">
+          <button
+            disabled={isBooking}
+            onClick={() => {
+              setIsBooking(true);
+
+              if (!selectedTime) {
+                setFormError("Please select a time slot.");
+                return;
+              }
+
+              if (
+                (experience === "tech" || experience === "non-tech") &&
+                (!graduationYear || graduationYear === "Select Graduation Year")
+              ) {
+                setFormError("Please select graduation year.");
+                return;
+              }
+
+              if (
+                experience !== "tech" &&
+                experience !== "non-tech" &&
+                !fathersOccupation.trim()
+              ) {
+                setFormError("Please enter your father's occupation.");
+                setIsBooking(false);
+                return;
+              }
+
+              setFormError("");
+              setShowDrawer(false);
+              toast.success("Webinar booked successfully!");
+
+              setName("");
+              setEmail("");
+              setPhone("");
+              setExperience("");
+              setSelectedTime("");
+              setGraduationYear("");
+              setFathersOccupation("");
+
+              setIsBooking(false);
+            }}
+            className={`w-full bg-orange-500 hover:bg-orange-600 text-white py-3 rounded-md font-semibold mb-0 ${
+              isBooking ? "opacity-50 cursor-not-allowed" : ""
+            }`}
+          >
+            {isBooking ? "Booking..." : "Book webinar"}
           </button>
         </div>
       </div>

@@ -28,18 +28,17 @@ const Header = () => {
             <img src={Logo} alt="Coding Ninjas Logo" className="h-8" />
             <ul className="flex gap-6 items-center font-medium text-gray-700">
               {/* Job Bootcamp */}
-              <li className="relative group flex items-center gap-1 cursor-pointer">
-                <span className="flex items-center gap-1">
+              <div className="relative group">
+                <li className="flex items-center gap-1 cursor-pointer">
                   Job Bootcamp <RiArrowDropDownLine size={30} />
-                </span>
+                </li>
 
                 {/* Dropdown */}
-                <div className="absolute left-0 top-full mt-2 bg-white rounded-xl shadow-xl p-4 w-[350px] hidden group-hover:block z-50">
+                <div className="absolute left-0 top-full mt-1 bg-white rounded-xl shadow-xl p-4 w-[350px] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition duration-200 z-50">
                   <p className="text-[13px] font-semibold text-gray-500 mb-4">
                     For graduates
                   </p>
 
-                  {/* Item 1 */}
                   <a
                     href="/fullstack"
                     target="_blank"
@@ -78,15 +77,15 @@ const Header = () => {
                     </div>
                   </div>
                 </div>
-              </li>
+              </div>
 
               {/* IIT Certifications with full-width dropdown */}
-              <li className="relative group cursor-pointer">
-                <div className="flex items-center gap-1">
+              <div className="relative group ">
+                <li className="flex items-center gap-1 cursor-pointer">
                   IIT Certifications <RiArrowDropDownLine size={30} />
-                </div>
+                </li>
 
-                <div className="absolute top-full left-0 mt-2 w-screen h-[50vh] bg-white rounded-bl-xl shadow-2xl hidden group-hover:flex z-50 px-16 py-10 gap-16">
+                <div className="absolute top-full left-0 mt-2 w-screen h-[50vh] bg-white rounded-bl-xl shadow-2xl px-16 py-10 gap-16 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50 flex">
                   {/* Left Column */}
                   <div className="w-1/4 pr-10">
                     <p className="text-sm text-gray-500 font-semibold mb-6">
@@ -111,10 +110,10 @@ const Header = () => {
                         className="h-10 w-10 object-contain"
                       />
                       <div>
-                        <p className="text-xs text-gray-500">
+                        <p className="text-xs text-gray-500 cursor-pointer">
                           E&ICT Academy IIT Guwahati
                         </p>
-                        <h4 className="text-sm font-medium text-black leading-snug">
+                        <h4 className="text-sm font-medium text-black leading-snug cursor-pointer">
                           PG Certification in Data Analytics with GenAI
                         </h4>
                       </div>
@@ -127,26 +126,27 @@ const Header = () => {
                         className="h-10 w-10 object-contain"
                       />
                       <div>
-                        <p className="text-xs text-gray-500">
+                        <p className="text-xs text-gray-500 cursor-pointre
+                        ">
                           E&ICT Academy IIT Guwahati
                         </p>
-                        <h4 className="text-sm font-medium text-black leading-snug">
+                        <h4 className="text-sm font-medium text-black leading-snug cursor-pointer">
                           PG Certification in Data Science with GenAI
                         </h4>
                       </div>
                     </div>
                   </div>
                 </div>
-              </li>
+              </div>
 
               {/* New Launches (no dropdown yet) */}
-              <li className="relative group flex items-center gap-1 cursor-pointer">
-                <span className="flex items-center gap-1">
+              <div className="relative group ">
+                <li className="flex items-center gap-1 cursor-pointer">
                   New Launches <RiArrowDropDownLine size={30} />
-                </span>
+                </li>
 
                 {/* dropdown */}
-                <div className="absolute left-[-120px] top-full mt-2 bg-white rounded-xl shadow-xl p-4 w-[400px] hidden group-hover:block z-50">
+                <div className="absolute left-[-120px] top-full mt-2 bg-white rounded-xl shadow-xl p-4 w-[400px] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
                   <p className="text-[13px] font-semibold text-gray-500 mb-4">
                     For graduates
                   </p>
@@ -159,16 +159,16 @@ const Header = () => {
                       className="h-8 w-8 object-cover mt-1"
                     />
                     <div>
-                      <h4 className="text-[15px] font-medium text-black leading-tight whitespace-nowrap">
+                      <h4 className="text-[15px] font-medium text-black leading-tight whitespace-nowrap cursor-pointer">
                         Advanced Certification in GenAI & Multi Agent Systems
                       </h4>
-                      <p className="text-[11px] text-blue-500">
+                      <p className="text-[11px] text-blue-500 cursor-pointer">
                         Certified by Coding Ninjas
                       </p>
                     </div>
                   </div>
                 </div>
-              </li>
+              </div>
             </ul>
           </div>
 
