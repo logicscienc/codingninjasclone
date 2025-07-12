@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import heart from "../assets/heart.svg";
+import heart from "../../assets/heart.svg";
 
 const textBlocks = [
   "Resolve doubts any time through chat, voice notes or calling.",

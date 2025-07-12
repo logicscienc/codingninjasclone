@@ -2,24 +2,24 @@ import React, { useState } from "react";
 import "./carousel.css";
 
 // Company Logos
-import amazon from "../assets/amazon.png";
-import calsoft from "../assets/calsoft.png";
-import citibank from "../assets/citibank.png";
-import google from "../assets/google.png";
-import microsoft from "../assets/microsoft.png";
-import paypal from "../assets/paypal.png";
-import persistent from "../assets/persistent.png";
-import uber from "../assets/uber.png";
+import amazon from "../../assets/amazon.png";
+import calsoft from "../../assets/calsoft.png";
+import citibank from "../../assets/citibank.png";
+import google from "../../assets/google.png";
+import microsoft from "../../assets/microsoft.png";
+import paypal from "../../assets/paypal.png";
+import persistent from "../../assets/persistent.png";
+import uber from "../../assets/uber.png";
 
 // People Images
-import entre1 from "../assets/entre1.jpg";
-import entre2 from "../assets/entre2.jpg";
-import entre3 from "../assets/entre3.jpg";
-import morning from "../assets/morning.jpg";
-import woman from "../assets/woman.jpg";
-import man1 from "../assets/man1.jpg";
-import man2 from "../assets/man2.jpg";
-import smile from "../assets/smile.jpg";
+import entre1 from "../../assets/entre1.jpg";
+import entre2 from "../../assets/entre2.jpg";
+import entre3 from "../../assets/entre3.jpg";
+import morning from "../../assets/morning.jpg";
+import woman from "../../assets/woman.jpg";
+import man1 from "../../assets/man1.jpg";
+import man2 from "../../assets/man2.jpg";
+import smile from "../../assets/smile.jpg";
 
 const placementData = [
   {

@@ -1,30 +1,30 @@
 import React, { useEffect, useRef, useState } from "react";
-import bootcampicon from "../assets/bootcampicon.svg";
-import frame from "../assets/frame.svg";
-import output from "../assets/output.webp";
-import scratch from "../assets/scratch.svg";
-import space from "../assets/space.webp";
-import dataImg from "../assets/dataImg.svg";
-import fswdImg from "../assets/fswdImg.svg";
-import iitDataImg from "../assets/iitDataImg.svg";
-import { FaMeta } from "react-icons/fa6";
-import { SiGoogleanalytics } from "react-icons/si";
-import chatgpt from "../assets/chatgpt.png";
-import { FaPython } from "react-icons/fa6";
-import nodecloud from "../assets/nodecloud.png";
-import OIP from "../assets/OIP.jpeg";
-import { FaNetworkWired } from "react-icons/fa6";
-import { FaDatabase } from "react-icons/fa6";
-import { SiMysql } from "react-icons/si";
+
+import bootcampicon from "../../assets/bootcampicon.svg";
+import frame from "../../assets/frame.svg";
+import output from "../../assets/output.webp";
+import scratch from "../../assets/scratch.svg";
+import space from "../../assets/space.webp";
+import dataImg from "../../assets/dataImg.svg";
+import fswdImg from "../../assets/fswdImg.svg";
+import iitDataImg from "../../assets/iitDataImg.svg";
+import chatgpt from "../../assets/chatgpt.png";
+import nodecloud from "../../assets/nodecloud.png";
+import OIP from "../../assets/OIP.jpeg";
+import powerbi from "../../assets/powerbi.jpg";
+import workflow from "../../assets/workflow.avif";
+import cpp from "../../assets/cpp.jpeg";
+import circle from "../../assets/circle.png";
+import group from "../../assets/group.png";
+import icon from "../../assets/icon.svg";
+
+import { FaMeta, FaPython, FaNetworkWired, FaDatabase } from "react-icons/fa6";
+import { SiGoogleanalytics, SiMysql } from "react-icons/si";
 import { PiMicrosoftExcelLogoBold } from "react-icons/pi";
-import powerbi from "../assets/powerbi.jpg";
-import workflow from "../assets/workflow.avif";
 import { BiLogoJavascript } from "react-icons/bi";
 import { IoLogoNodejs } from "react-icons/io5";
-import cpp from "../assets/cpp.jpeg";
-import circle from "../assets/circle.png";
-import group from "../assets/group.png";
-import icon from '../assets/icon.svg';
+
+
 
 const HighlightsSection = () => {
   const [scrollHeight, setScrollHeight] = useState(0);

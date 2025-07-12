@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import check from "../assets/check.svg";
+import check from "../../assets/check.svg";
 
 const HeroSection = () => {
   const [experience, setExperience] = useState("");

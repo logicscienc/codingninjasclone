@@ -1,21 +1,21 @@
 import React, { useEffect } from "react";
 import { motion, useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
-import boy from "../assets/boy.jpeg";
-import tie from "../assets/tie.jpeg";
-import stanford from "../assets/stanford.png";
-import one from "../assets/one.png";
-import placement from "../assets/placement.png";
-import gd from "../assets/gd.mp4";
-import rupees from "../assets/rupees.jpg";
-import arrow from "../assets/arrow.png";
-import c from "../assets/c.svg";
-import fi from "../assets/fi.svg";
-import Logo from "../assets/logo.svg";
+import boy from "../../assets/boy.jpeg";
+import tie from "../../assets/tie.jpeg";
+import stanford from "../../assets/stanford.png";
+import one from "../../assets/one.png";
+import placement from "../../assets/placement.png";
+import gd from "../../assets/gd.mp4";
+import rupees from "../../assets/rupees.jpg";
+import arrow from "../../assets/arrow.png";
+import c from "../../assets/c.svg";
+import fi from "../../assets/fi.svg";
+import Logo from "../../assets/logo.svg";
 import { MdKeyboardDoubleArrowUp } from "react-icons/md";
 import { RxCross1 } from "react-icons/rx";
 import { TiTick } from "react-icons/ti";
-import checklist from '../assets/checklist.svg';
+import checklist from '../../assets/checklist.svg';
 
 // Animation variants
 const item = {

@@ -1,8 +1,8 @@
 import React, { useEffect, useRef, useState } from "react";
-import web_excel from "../assets/web_excel.webp";
-import web_learn from "../assets/web_learn.webp";
-import web from "../assets/web.webp";
-import rocket from "../assets/rocket.svg";
+import web_excel from "../../assets/web_excel.webp";
+import web_learn from "../../assets/web_learn.webp";
+import web from "../../assets/web.webp";
+import rocket from "../../assets/rocket.svg";
 
 const LearningModel = () => {
   const [scrollHeight, setScrollHeight] = useState(0);

@@ -1,17 +1,17 @@
-import React from "react";
+import React, { useState } from "react";
 import { RiArrowDropDownLine } from "react-icons/ri";
 import { MdKeyboardArrowRight } from "react-icons/md";
-import Logo from "../assets/logo.svg";
-import fswdImg from "../assets/fswdImg.svg";
-import dataImg from "../assets/dataImg.svg";
-import iitDataImg from "../assets/iitDataImg.svg";
-import icon from "../assets/icon.svg";
-import { useState } from "react";
 import { FaGoogle } from "react-icons/fa";
 import { RxCross2 } from "react-icons/rx";
-import naukriLogo from "../assets/naukriLogo.svg";
 import { FaArrowRight } from "react-icons/fa6";
-import googleIcon from "../assets/googleIcon.svg";
+
+import Logo from "../../assets/logo.svg";
+import fswdImg from "../../assets/fswdImg.svg";
+import dataImg from "../../assets/dataImg.svg";
+import iitDataImg from "../../assets/iitDataImg.svg";
+import icon from "../../assets/icon.svg";
+import naukriLogo from "../../assets/naukriLogo.svg";
+import googleIcon from "../../assets/googleIcon.svg";
 
 const Header = () => {
   const [showLogin, setShowLogin] = useState(false);
@@ -40,7 +40,12 @@ const Header = () => {
                   </p>
 
                   {/* Item 1 */}
-                  <div className="flex gap-3 mb-4">
+                  <a
+                    href="/fullstack"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex gap-3 mb-4 hover:bg-gray-100 p-2 rounded-md transition"
+                  >
                     <img
                       src={fswdImg}
                       alt="FSWD"
@@ -54,7 +59,7 @@ const Header = () => {
                         Certified by Coding Ninjas
                       </p>
                     </div>
-                  </div>
+                  </a>
 
                   {/* Item 2 */}
                   <div className="flex items-start gap-3">
@@ -188,10 +193,7 @@ const Header = () => {
 
                 {/* Profile Dropdown */}
                 {showProfileDropdown && (
-                  <div
-                    className="absolute top-12 right-0 w-72 bg-white rounded-xl shadow-xl p-6 z-50 transition duration-200 ease-in-out">
-
-                  
+                  <div className="absolute top-12 right-0 w-72 bg-white rounded-xl shadow-xl p-6 z-50 transition duration-200 ease-in-out">
                     <div className="flex items-center gap-3 mb-4">
                       <img
                         src={`https://api.dicebear.com/6.x/initials/svg?seed=${email}`}

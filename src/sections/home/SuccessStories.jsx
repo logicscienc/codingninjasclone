@@ -1,27 +1,28 @@
 import React, { useEffect, useRef, useState } from "react";
-import comma from "../assets/comma.svg";
+import comma from "../../assets/comma.svg";
 import { MdArrowOutward } from "react-icons/md";
-import entre1 from "../assets/entre1.jpg";
-import entre2 from "../assets/entre2.jpg";
-import entre3 from "../assets/entre3.jpg";
-import morning from "../assets/morning.jpg";
-import woman from "../assets/woman.jpg";
-import man1 from "../assets/man1.jpg";
-import man2 from "../assets/man2.jpg";
-import smile from "../assets/smile.jpg";
-import adobe from "../assets/adobe.webp";
-import app from "../assets/app.webp";
-import appmyntra from "../assets/appmyntra.webp";
-import apple from "../assets/apple.webp";
-import asset from "../assets/asset.png";
-import bombay from "../assets/bombay.jpg";
-import bubbles from "../assets/bubbles.webp";
-import expsdia from "../assets/expedia.webp";
-import frame1 from "../assets/frame1.svg";
+import entre1 from "../../assets/entre1.jpg";
+import entre2 from "../../assets/entre2.jpg";
+import entre3 from "../../assets/entre3.jpg";
+import morning from "../../assets/morning.jpg";
+import woman from "../../assets/woman.jpg";
+import man1 from "../../assets/man1.jpg";
+import man2 from "../../assets/man2.jpg";
+import smile from "../../assets/smile.jpg";
+import adobe from "../../assets/adobe.webp";
+import app from "../../assets/app.webp";
+import appmyntra from "../../assets/appmyntra.webp";
+import apple from "../../assets/apple.webp";
+import asset from "../../assets/asset.png";
+import bombay from "../../assets/bombay.jpg";
+import bubbles from "../../assets/bubbles.webp";
+import expsdia from "../../assets/expedia.webp";
+import frame1 from "../../assets/frame1.svg";
+
 import { MdKeyboardDoubleArrowUp } from "react-icons/md";
 import { FaFacebookSquare } from "react-icons/fa";
-import googleIcon from "../assets/googleIcon.svg";
-import c from "../assets/c.svg";
+import googleIcon from "../../assets/googleIcon.svg";
+import c from "../../assets/c.svg";
 
 const SuccessStories = () => {
   const [scrollHeight, setScrollHeight] = useState(0);
