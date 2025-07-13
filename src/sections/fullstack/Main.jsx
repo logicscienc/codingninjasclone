@@ -100,7 +100,7 @@ const Main = () => {
   // }, []);
 
   return (
-    <section className="bg-gradient-to-br from-[#0e121d] via-[#111827] to-[#1e293b] text-white">
+    <section id="about" className="bg-gradient-to-br from-[#0e121d] via-[#111827] to-[#1e293b] text-white">
       <div className="max-w-[1000px] mx-auto px-4 py-12 flex flex-col md:flex-row justify-between items-start gap-10">
         {/* Left Section */}
         <div className="md:w-1/2 space-y-6 mt-6 md:mt-12">

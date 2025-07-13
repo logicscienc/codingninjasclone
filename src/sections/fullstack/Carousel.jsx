@@ -94,7 +94,7 @@ const Carousel = () => {
   };
 
   return (
-    <div className="container">
+    <div id="curriculum" className="container">
       <h2 className="title">Job Bootcamp brochure</h2>
       <div className="button-container">
         <button className="brochure-btn" onClick={() => openForm(mernPdf)}>

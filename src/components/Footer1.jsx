@@ -1,4 +1,4 @@
-import React from "react";
+import React, { forwardRef } from "react";
 import { MdCall } from "react-icons/md";
 import { FaEnvelope } from "react-icons/fa6";
 import { BsInstagram } from "react-icons/bs";
@@ -9,9 +9,9 @@ import { IoLogoYoutube } from "react-icons/io5";
 import Logo from "../assets/logo.svg";
 import c from "../assets/c.svg";
 
-const Footer1 = () => {
+const Footer1 = forwardRef((props, ref) => {
   return (
-    <footer className="bg-[#231F20] text-white py-10 ">
+    <footer ref={ref} className="bg-[#231F20] text-white py-10">
       <div className="max-w-[1000px] mx-auto px-4 grid grid-cols-1 md:grid-cols-4 gap-8 text-sm mt-20 mb-20">
         {/* Left Section */}
         <div className="space-y-4">
@@ -19,10 +19,10 @@ const Footer1 = () => {
           <div>
             <p className="font-semibold mb-1">Contact us</p>
             <div className="flex items-center gap-2">
-              <MdCall className="h-8 w-8"/> 1800-123-3598
+              <MdCall className="h-8 w-8" /> 1800-123-3598
             </div>
             <div className="flex items-center gap-2">
-              <FaEnvelope  className="w-8 h-8"/> contact@codingninjas.com
+              <FaEnvelope className="w-8 h-8" /> contact@codingninjas.com
             </div>
           </div>
           <div>
@@ -86,7 +86,7 @@ const Footer1 = () => {
             target="_blank"
             rel="noopener noreferrer"
           >
-            < FaFacebookSquare />
+            <FaFacebookSquare />
           </a>
           <a
             href="https://www.linkedin.com/school/codingninjas/"
@@ -113,6 +113,6 @@ const Footer1 = () => {
       </div>
     </footer>
   );
-};
+});
 
 export default Footer1;
