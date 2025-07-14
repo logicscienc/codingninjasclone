@@ -1,6 +1,7 @@
 import React from 'react';
 import { FaHome } from 'react-icons/fa';
 import newcnlogo from './images/newcnlogo.webp';
+import RequestCallbackButton from './RequestCallbackButton';
 
 const Header = () => {
   return (
@@ -14,9 +15,7 @@ const Header = () => {
           </div>
 
           {/* Right side: button */}
-          <button className="bg-orange-500 hover:bg-orange-600 text-white text-sm font-semibold py-2 px-4 rounded">
-            Request callback
-          </button>
+          <RequestCallbackButton/>
         </div>
       </nav>
     </header>

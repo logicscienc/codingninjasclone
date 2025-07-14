@@ -50,11 +50,12 @@ const journeySteps = [
   },
 ];
 
-const CourseJourneyContent = () => {
+const CourseJourneyContent = ({ showForm, setShowForm }) => {
   const containerRef = useRef(null);
   const lineRef = useRef(null);
   const [lineHeight, setLineHeight] = useState(0);
-  const [showForm, setShowForm] = useState(false);
+//   const [showForm, setShowForm] = useState(false);
+  const [selectedCourse, setSelectedCourse] = useState("Web Development");
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -111,11 +112,36 @@ const CourseJourneyContent = () => {
     }
   };
 
+  const handleCourseClick = (value) => {
+    if (selectedCourse === value) {
+      setSelectedCourse(""); // uncheck
+    } else {
+      setSelectedCourse(value); // check
+    }
+  };
+
+  useEffect(() => {
+    if (showForm) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+  }, [showForm]);
+
   return (
-    <div
-      ref={containerRef}
-      className="relative bg-[#f6f4fb] py-20 overflow-hidden"
-    >
+    <div className="relative">
+      {/* {showForm && (
+        <div className="fixed top-0 left-0 w-full h-full bg-black bg-opacity-40 z-40 transition-opacity duration-300"></div>
+      )} */}
+
+      {/* Main content with blur when drawer is open */}
+      <div
+        ref={containerRef}
+        className={`relative bg-[#f6f4fb] py-20 overflow-hidden transition-all duration-300 ${
+          showForm ? "blur-sm pointer-events-none" : ""
+        }`}
+      >
+
       <div className="max-w-[1000px] mx-auto px-4 flex">
         <div className="w-1/3 pr-4">
           <h3 className="text-sm text-violet-600 font-semibold">
@@ -168,6 +194,7 @@ const CourseJourneyContent = () => {
           </div>
         </div>
       </div>
+      </div>
       <div
         className={`fixed top-0 right-0 h-screen w-[520px] bg-white shadow-2xl transform transition-transform duration-300 ease-in-out z-50 flex flex-col ${
           showForm ? "translate-x-0" : "translate-x-full"
@@ -175,6 +202,18 @@ const CourseJourneyContent = () => {
       >
         <div className="flex-grow overflow-y-auto p-6">
           <h2 className="text-lg font-bold mb-4">Book a free live webinar</h2>
+
+          <label className="flex items-center mb-4 cursor-pointer">
+            <input
+              type="radio"
+              name="course"
+              value="Web Development"
+              checked={selectedCourse === "Web Development"}
+              onChange={() => handleCourseClick("Web Development")}
+              className="appearance-none w-4 h-4 border-2 rounded-full checked:bg-black checked:border-black mr-3"
+            />
+            Web Development
+          </label>
 
           <label className="block mb-1 text-sm">Name *</label>
           <input
@@ -246,7 +285,7 @@ const CourseJourneyContent = () => {
           <p className="text-red-500 text-xs mb-2">{errors.experience}</p>
         )}
 
-        <div className="p-6 border-t">
+        <div className="p-6 ">
           <button
             onClick={handleSubmit}
             className="bg-orange-500 text-white w-full py-2 rounded-md text-sm"
@@ -262,7 +301,6 @@ const CourseJourneyContent = () => {
           ×
         </button>
       </div>
-      
     </div>
   );
 };

@@ -1,5 +1,13 @@
 import React, { useRef, useEffect, useState } from "react";
 import JourneyContent from "./CourseJourneyContent";
+import Benefits from "./Benefits";
+import Plans from "./Plans";
+import Faq from "./Faq";
+import Callback from "./Callback";
+import TrustAndLove from "./TrustAndLove";
+import JobBootcamp from "./JobBootcamp";
+import Faculty from "./Faculty";
+import LearnerBackground from "./LearnerBackground";
 
 const SECTIONS = [
   { id: "about", label: "About the course" },
@@ -10,7 +18,7 @@ const SECTIONS = [
   { id: "faqs", label: "FAQs" },
 ];
 
-const CourseJourney = () => {
+const CourseJourney = ({ footerRef, showForm, setShowForm }) => {
   const navRef = useRef(null);
   const [navHeight, setNavHeight] = useState(0);
   const [activeId, setActiveId] = useState("about");
@@ -48,10 +56,8 @@ const CourseJourney = () => {
 
   return (
     <>
-      {/* Spacer to avoid layout shift */}
       <div style={{ height: `${navHeight}px` }} />
 
-      {/* Sticky Navbar */}
       <div ref={navRef} className="sticky top-16 z-50 bg-transparent">
         <div className="max-w-[600px] mx-auto bg-white px-6 py-3 rounded-full shadow-md border border-gray-200">
           <nav className="flex flex-wrap justify-center gap-1 text-xs font-medium">
@@ -72,36 +78,47 @@ const CourseJourney = () => {
         </div>
       </div>
 
-      {/* Content Sections */}
       <div className="space-y-8 px-4 max-w-[1000px] mx-auto">
         <section id="about" />
         <section id="curriculum" />
         <section id="journey">
-          <JourneyContent />
+          <JourneyContent showForm={showForm} setShowForm={setShowForm} />
         </section>
-        <section id="benefits" />
-        <section id="plans" />
-        <section id="faqs" />
+        <section id="benefits">
+          <Benefits setShowForm={setShowForm} />
+        </section>
+      </div>
+      <section>
+        <JobBootcamp/>
+      </section>
+      <section className="bg-black py-16">
+        <div className="px-4 max-w-[1000px] mx-auto">
+          <TrustAndLove setShowForm={setShowForm} />
+        </div>
+      </section>
+      <section>
+        <Faculty setShowForm={setShowForm} />
+        
+      </section>
+      <section>
+        <LearnerBackground setShowForm={setShowForm} />
+        
+      </section>
+      
+
+      <div className="space-y-8 px-4 max-w-[1000px] mx-auto">
+        <section id="plans">
+          <Plans />
+        </section>
+        <section id="callback">
+          <Callback />
+        </section>
+        <section id="faqs">
+          <Faq setShowForm={setShowForm} />
+        </section>
       </div>
     </>
   );
 };
 
 export default CourseJourney;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
