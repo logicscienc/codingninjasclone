@@ -50,12 +50,18 @@ const journeySteps = [
   },
 ];
 
-const CourseJourneyContent = ({ showForm, setShowForm }) => {
+const CourseJourneyContent = ({ showForm, setShowForm, courseName = "Web Development" }) => {
   const containerRef = useRef(null);
   const lineRef = useRef(null);
+  // const [selectedCourse, setSelectedCourse] = useState(courseName);
+ 
   const [lineHeight, setLineHeight] = useState(0);
 //   const [showForm, setShowForm] = useState(false);
-  const [selectedCourse, setSelectedCourse] = useState("Web Development");
+ const [selectedCourse, setSelectedCourse] = useState(courseName);
+  useEffect(() => {
+  setSelectedCourse(courseName);
+}, [courseName]);
+
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -207,12 +213,12 @@ const CourseJourneyContent = ({ showForm, setShowForm }) => {
             <input
               type="radio"
               name="course"
-              value="Web Development"
-              checked={selectedCourse === "Web Development"}
-              onChange={() => handleCourseClick("Web Development")}
+              value={courseName}
+              checked={selectedCourse === courseName}
+              onChange={() => handleCourseClick(courseName)}
               className="appearance-none w-4 h-4 border-2 rounded-full checked:bg-black checked:border-black mr-3"
             />
-            Web Development
+            {courseName}
           </label>
 
           <label className="block mb-1 text-sm">Name *</label>
@@ -296,7 +302,7 @@ const CourseJourneyContent = ({ showForm, setShowForm }) => {
 
         <button
           onClick={() => setShowForm(false)}
-          className="absolute top-2 right-3 text-gray-500 hover:text-black text-xl"
+          className="absolute top-2 right-3 text-gray-500 hover:text-black text-3xl"
         >
           ×
         </button>

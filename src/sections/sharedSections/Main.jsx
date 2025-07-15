@@ -7,7 +7,7 @@ import one from "../../assets/one.png";
 import placement from "../../assets/placement.png";
 import { toast } from "react-toastify";
 
-const Main = () => {
+const Main = ({ title, subtitle, stats }) => {
   const [experience, setExperience] = useState("");
   const [showDrawer, setShowDrawer] = useState(false);
   const [selectedTime, setSelectedTime] = useState("");
@@ -111,12 +111,11 @@ const Main = () => {
           />
 
           <h1 className="text-3xl md:text-3xl font-bold leading-tight">
-            Full Stack Web Development <br /> Job Bootcamp with GenAI
+            {title}
           </h1>
 
           <p className="text-gray-300 text-sm md:text-base">
-            Choose MERN stack or Spring Boot and acquire expertise through
-            practical application and real-world projects.
+            {subtitle}
           </p>
 
           <div className="flex flex-wrap gap-3 text-xs font-medium">
@@ -135,22 +134,12 @@ const Main = () => {
           </div>
 
           <div className="bg-[#1f2937] text-center grid grid-cols-4 gap-4 text-sm text-white py-4 px-6 rounded-xl w-fit mt-4">
-            <div>
-              <p className="text-lg font-bold">95%</p>
-              <p className="text-xs text-gray-400">placement rate</p>
-            </div>
-            <div>
-              <p className="text-lg font-bold">1200+</p>
-              <p className="text-xs text-gray-400">Companies Hiring</p>
-            </div>
-            <div>
-              <p className="text-lg font-bold">128%</p>
-              <p className="text-xs text-gray-400">Average hike</p>
-            </div>
-            <div>
-              <p className="text-lg font-bold">1.5 L+</p>
-              <p className="text-xs text-gray-400">Learners</p>
-            </div>
+            {stats.map((stat, idx) => (
+              <div key={idx}>
+                <p className="text-lg font-bold">{stat.value}</p>
+                <p className="text-xs text-gray-400">{stat.label}</p>
+              </div>
+            ))}
           </div>
 
           <p className="text-sm mt-6 text-gray-300 flex items-center gap-2">

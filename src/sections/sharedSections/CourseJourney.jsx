@@ -18,7 +18,14 @@ const SECTIONS = [
   { id: "faqs", label: "FAQs" },
 ];
 
-const CourseJourney = ({ footerRef, showForm, setShowForm }) => {
+const CourseJourney = ({
+  footerRef,
+  showForm,
+  setShowForm,
+  courseName,
+  FaqComponent,
+  PlansComponent,
+}) => {
   const navRef = useRef(null);
   const [navHeight, setNavHeight] = useState(0);
   const [activeId, setActiveId] = useState("about");
@@ -82,14 +89,18 @@ const CourseJourney = ({ footerRef, showForm, setShowForm }) => {
         <section id="about" />
         <section id="curriculum" />
         <section id="journey">
-          <JourneyContent showForm={showForm} setShowForm={setShowForm} />
+          <JourneyContent
+            showForm={showForm}
+            setShowForm={setShowForm}
+            courseName={courseName}
+          />
         </section>
         <section id="benefits">
           <Benefits setShowForm={setShowForm} />
         </section>
       </div>
       <section>
-        <JobBootcamp/>
+        <JobBootcamp />
       </section>
       <section className="bg-black py-16">
         <div className="px-4 max-w-[1000px] mx-auto">
@@ -98,23 +109,25 @@ const CourseJourney = ({ footerRef, showForm, setShowForm }) => {
       </section>
       <section>
         <Faculty setShowForm={setShowForm} />
-        
       </section>
       <section>
         <LearnerBackground setShowForm={setShowForm} />
-        
       </section>
-      
 
       <div className="space-y-8 px-4 max-w-[1000px] mx-auto">
         <section id="plans">
-          <Plans />
+          {PlansComponent ? <PlansComponent /> : <Plans />}
         </section>
+
         <section id="callback">
           <Callback />
         </section>
         <section id="faqs">
-          <Faq setShowForm={setShowForm} />
+          {FaqComponent ? (
+            <FaqComponent setShowForm={setShowForm} courseName={courseName} />
+          ) : (
+            <Faq setShowForm={setShowForm} courseName={courseName} />
+          )}
         </section>
       </div>
     </>

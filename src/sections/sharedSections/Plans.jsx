@@ -23,6 +23,7 @@ const Plans = () => {
     <>
       {showModal && <ApplyModal onClose={() => setShowModal(false)} />}
       <div className="max-w-[1000px] mx-auto px-4 py-12">
+        <h2 className="text-3xl font-bold text-center mb-8 mt-16">Plans and Pricing</h2>
         {/* Toggle */}
         <div className="flex justify-center mt-12 mb-6">
           <div className="flex bg-blue-200 rounded-full p-2">

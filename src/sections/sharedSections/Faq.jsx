@@ -6,7 +6,8 @@ import nsdc from "./images/nsdc.webp";
 import RequestCallbackButton from "./RequestCallbackButton"; // adjust path as needed
 
 
-const faqData = [
+const faqContent = {
+  "Full Stack Web Development": [
   {
     question: "What is the Full Stack Web Development Job Bootcamp program?",
     answer:
@@ -33,14 +34,44 @@ const faqData = [
     answer:
       "With a 95% placement rate and partnerships with 1200+ hiring companies, this FSD bootcamp has helped learners secure top tech jobs. Alumni have received an average salary hike of 128%, with some achieving 425% hikes.",
   },
-];
+],
 
-const Faq = ({ setShowForm }) => {
+"Data Analytics" : [
+  {
+    question: "What is the Data Analytics Job Bootcamp program?",
+    answer: "The Data Analytics Job Bootcamp is an intensive, practice-based learning program designed to get you job-ready in just six months. The curriculum covers essential data analytics tools like Excel, SQL, Python, Power BI, and statistics through real-world case studies. With live classes, 1:1 expert sessions, and placement support, this data analytics bootcamp online ensures a smooth transition into the industry."
+
+  },
+  {
+    question: "What is the refund policy for the Data Analytics Bootcamp program?",
+    answer: "You can request a refund within 7 days of your batch start date."
+
+  },
+  {
+    question: "Who is eligible for the Data Analyst Bootcamp?",
+    answer: "The Job Bootcamp is open to working professionals, final-year college students, and fresher graduates from any industry or domain."
+
+  },
+  {
+    question : "What is the duration of the Data Analytics Job Bootcamp?",
+    answer: "The duration of the program is 6 months (learning phase), along with placement support until you secure your first job. Additionally, you will continue to have access to the content for 21 months from your batch start date."
+
+  },
+  {
+    question: "How good is the placement record for the Data Analytics Bootcamp?",
+    answer: "According to our records, 95% of learners who completed the program have secured suitable job opportunities. Coding Ninjas has consistently delivered on its promises and is a trusted name in the education industry, with experience in upskilling over 1,50,000 learners. We will create your profile, assist you in preparing your resume, conduct mock interviews, and do everything we can to help you land a job."
+
+  },
+]
+};
+
+const Faq = ({ setShowForm, courseName = "Full Stack Web Development" }) => {
   const [activeIndex, setActiveIndex] = useState(null);
 
   const toggleIndex = (index) => {
     setActiveIndex(activeIndex === index ? null : index);
   };
+  const faqData = faqContent[courseName] || [];
   return (
     <div className="max-w-[1000px] mx-auto px-4 py-12 mt-16">
       <h2 className="text-2xl font-bold text-center mb-8">

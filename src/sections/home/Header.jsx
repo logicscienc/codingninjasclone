@@ -61,7 +61,12 @@ const Header = () => {
                   </a>
 
                   {/* Item 2 */}
-                  <div className="flex items-start gap-3">
+                  <a
+                    href="/dataanalytics"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex gap-3 hover:bg-gray-100 p-2 rounded-md transition"
+                  >
                     <img
                       src={dataImg}
                       alt="Data Analytics"
@@ -75,7 +80,7 @@ const Header = () => {
                         Certified by Coding Ninjas
                       </p>
                     </div>
-                  </div>
+                  </a>
                 </div>
               </div>
 
@@ -126,8 +131,10 @@ const Header = () => {
                         className="h-10 w-10 object-contain"
                       />
                       <div>
-                        <p className="text-xs text-gray-500 cursor-pointre
-                        ">
+                        <p
+                          className="text-xs text-gray-500 cursor-pointre
+                        "
+                        >
                           E&ICT Academy IIT Guwahati
                         </p>
                         <h4 className="text-sm font-medium text-black leading-snug cursor-pointer">
@@ -152,21 +159,26 @@ const Header = () => {
                   </p>
 
                   {/* Dropdown Item */}
-                  <div className="flex gap-3 mb-2">
+                  <a
+                    href="/advanced"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex gap-3 mb-2 hover:bg-gray-100 p-2 rounded-md transition"
+                  >
                     <img
                       src={icon}
                       alt="New Course"
                       className="h-8 w-8 object-cover mt-1"
                     />
                     <div>
-                      <h4 className="text-[15px] font-medium text-black leading-tight whitespace-nowrap cursor-pointer">
+                      <h4 className="text-[15px] font-medium text-black leading-tight whitespace-nowrap">
                         Advanced Certification in GenAI & Multi Agent Systems
                       </h4>
-                      <p className="text-[11px] text-blue-500 cursor-pointer">
+                      <p className="text-[11px] text-blue-500">
                         Certified by Coding Ninjas
                       </p>
                     </div>
-                  </div>
+                  </a>
                 </div>
               </div>
             </ul>
