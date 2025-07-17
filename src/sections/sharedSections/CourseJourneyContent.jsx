@@ -50,7 +50,7 @@ const journeySteps = [
   },
 ];
 
-const CourseJourneyContent = ({ showForm, setShowForm, courseName = "Web Development" }) => {
+const CourseJourneyContent = ({ showForm, setShowForm, courseName = "Web Development", buttonLabel= "View Curriculam", onButtonClick, }) => {
   const containerRef = useRef(null);
   const lineRef = useRef(null);
   // const [selectedCourse, setSelectedCourse] = useState(courseName);
@@ -159,9 +159,11 @@ const CourseJourneyContent = ({ showForm, setShowForm, courseName = "Web Develop
           </h1>
           <button
             className="mt-6 bg-orange-500 text-white px-4 py-2 rounded-md text-sm"
-            onClick={() => setShowForm(true)}
+            onClick={onButtonClick || (() => setShowForm(true))}
+
           >
-            View curriculum
+            {buttonLabel}
+
           </button>
         </div>
 

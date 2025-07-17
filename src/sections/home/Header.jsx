@@ -223,6 +223,7 @@ const Header = () => {
                         onClick={() => {
                           setIsLoggedIn(false);
                           setEmail("");
+                           localStorage.removeItem("userEmail");
                           setShowLogin(true); // Reopen login drawer
                           setShowProfileDropdown(false);
                         }}
@@ -301,6 +302,7 @@ const Header = () => {
                     if (email) {
                       setIsLoggedIn(true);
                       setShowLogin(false);
+                      localStorage.setItem("userEmail", email); 
                     }
                   }}
                   className={`w-full py-2 rounded-md font-semibold flex justify-center items-center gap-2 transition-colors ${

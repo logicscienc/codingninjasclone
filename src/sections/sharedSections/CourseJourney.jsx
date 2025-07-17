@@ -25,6 +25,8 @@ const CourseJourney = ({
   courseName,
   FaqComponent,
   PlansComponent,
+  buttonLabel, 
+  onButtonClick,
 }) => {
   const navRef = useRef(null);
   const [navHeight, setNavHeight] = useState(0);
@@ -65,7 +67,7 @@ const CourseJourney = ({
     <>
       <div style={{ height: `${navHeight}px` }} />
 
-      <div ref={navRef} className="sticky top-16 z-50 bg-transparent">
+      <div ref={navRef} className="sticky top-18 z-50 bg-transparent">
         <div className="max-w-[600px] mx-auto bg-white px-6 py-3 rounded-full shadow-md border border-gray-200">
           <nav className="flex flex-wrap justify-center gap-1 text-xs font-medium">
             {SECTIONS.map(({ id, label }) => (
@@ -93,6 +95,8 @@ const CourseJourney = ({
             showForm={showForm}
             setShowForm={setShowForm}
             courseName={courseName}
+            buttonLabel={buttonLabel}
+             onButtonClick={onButtonClick} 
           />
         </section>
         <section id="benefits">

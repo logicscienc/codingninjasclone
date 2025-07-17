@@ -24,8 +24,6 @@ import { PiMicrosoftExcelLogoBold } from "react-icons/pi";
 import { BiLogoJavascript } from "react-icons/bi";
 import { IoLogoNodejs } from "react-icons/io5";
 
-
-
 const HighlightsSection = () => {
   const [scrollHeight, setScrollHeight] = useState(0);
   const sectionRef = useRef(null);
@@ -243,7 +241,12 @@ const HighlightsSection = () => {
             {/* row 2 - 3 cards */}
             <div className="flex flex-wrap gap-6 mb-8">
               {/* card 3 */}
-              <div className="bg-white rounded-xl shadow-md overflow-hidden relative border border-orange-300 w-[280px] h-[400px] flex flex-col justify-between">
+              <a
+                href="/trainingandplacement"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-white rounded-xl shadow-md overflow-hidden relative border border-orange-300 w-[280px] h-[400px] flex flex-col justify-between hover:shadow-lg transition duration-300"
+              >
                 <div className="relative px-2 pt-2">
                   <img
                     src={output}
@@ -266,16 +269,19 @@ const HighlightsSection = () => {
                   <div className="flex gap-2">
                     <img src={circle} alt="icon" className="w-6 h-6" />
                     <img src={workflow} alt="icon" className="w-6 h-6" />
-
                     <FaDatabase className="w-6 h-6 text-blue-600" />
                     <img src={cpp} alt="icon" className="w-6 h-6" />
                   </div>
                   <span className="ml-auto text-gray-600">4 months</span>
                 </div>
-              </div>
+              </a>
 
               {/* card 4 */}
-              <div className="bg-white rounded-xl shadow-md overflow-hidden relative border border-orange-300 w-[280px] h-[400px] flex flex-col justify-between">
+              <a 
+              href="/academy"
+                target="_blank"
+                rel="noopener noreferrer"
+               className="bg-white rounded-xl shadow-md overflow-hidden relative border border-orange-300 w-[280px] h-[400px] flex flex-col justify-between">
                 <div className="relative px-2 pt-2">
                   <img
                     src={space}
@@ -301,10 +307,14 @@ const HighlightsSection = () => {
                   </div>
                   <span className="ml-auto text-gray-600">6 months</span>
                 </div>
-              </div>
+              </a>
 
               {/* card 5 */}
-              <div className="bg-white rounded-xl shadow-md overflow-hidden relative border border-orange-300 w-[280px] h-[400px] flex flex-col justify-between">
+              <a
+               href="/webdevelopment"
+                target="_blank"
+                rel="noopener noreferrer"
+               className="bg-white rounded-xl shadow-md overflow-hidden relative border border-orange-300 w-[280px] h-[400px] flex flex-col justify-between">
                 <div className="relative px-2 pt-2">
                   <img
                     src={output}
@@ -332,7 +342,7 @@ const HighlightsSection = () => {
                   </div>
                   <span className="ml-auto text-gray-600">9 months</span>
                 </div>
-              </div>
+              </a>
             </div>
           </div>
         </div>
