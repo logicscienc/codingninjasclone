@@ -1,19 +1,31 @@
-import React, {useRef, useState} from 'react'
+import React, { useRef, useState } from "react";
 import Header from "../sharedSections/Header";
-import Main from "../sharedSections/MainAdvanced";
-import MainAdvanced from '../sharedSections/MainAdvanced';
+import MainAdvanced from "./MainAdvanced";
+import CourseJourney from "./CourseJourney";
 import Footer1 from "../../components/Footer1";
 import Footer2 from "../../components/Footer2";
-import CourseJourney from "../sharedSections/CourseJourney";
+import GenAIJourney from "./GenAIJourney";
+import Benefits from "./Benefits";
+ import Program from "./Program";
+ import Callback from '../sharedSections/Callback';
+ import BenefitsLearning from "./BenefitsLearning";
+ import Faculty from "./Faculty";
+ import LearnerBackground from "./LearnerBackground";
+ import Plans from "./Plans";
 import PlansAnalytics from "../sharedSections/PlansAndPricing";
-import Faq from "../sharedSections/Faq";
+import FaqSection from "./FaqSection.jsx";
+import SlidingDrawer from "./SlidingDrawer"; 
 import advancedtech from "../sharedSections/images/advancedtech.pdf";
-import advance from "../sharedSections/images/advance.pdf";
 
 const Advanced = () => {
-   const footerRef = useRef(null);
+  const footerRef = useRef(null);
+  const [isDrawerOpen, setDrawerOpen] = useState(false); 
 
-    const handleUnlockClick = () => {
+  const handleCurriculumClick = () => {
+    setDrawerOpen(true); 
+  };
+
+  const handleUnlockClick = () => {
     const html = `
       <html>
         <head><title>Curriculum</title></head>
@@ -22,36 +34,52 @@ const Advanced = () => {
         </body>
       </html>
     `;
-    const newWindow = window.open();
+    const newWindow = window.open("", "_blank");
     if (newWindow) {
+      newWindow.document.open();
       newWindow.document.write(html);
       newWindow.document.close();
     }
   };
-   
+
   return (
     <div>
-       <Header />
-        <MainAdvanced
+      <Header />
+
+      <MainAdvanced
+        onUnlockClick={handleUnlockClick}
         stats={[
           { value: "1:1", label: "Doubt support" },
           { value: "100%", label: "Live Classes" },
           { value: "10+", label: "Hands-on projects" },
-        
         ]}
       />
-      {/* <CourseJourney
-        footerRef={footerRef}
-         FaqComponent={Faq}
-        PlansComponent={PlansAnalytics}
-         buttonLabel="Unlock Curriculum"
-        onButtonClick={handleUnlockClick}
-      /> */}
 
-       <Footer1 ref={footerRef} />
+      <CourseJourney />
+
+      <GenAIJourney onUnlockClick={handleCurriculumClick} /> 
+
+      <Benefits handleCurriculumClick={handleCurriculumClick} /> 
+      <Program/> 
+      <BenefitsLearning/>
+      <Faculty  handleCurriculumClick={handleCurriculumClick}/>
+      <LearnerBackground  handleCurriculumClick={handleCurriculumClick}/>
+      <Plans/>
+      <Callback/>
+      <FaqSection handleCurriculumClick={handleCurriculumClick}/>
+      
+      <SlidingDrawer
+        isOpen={isDrawerOpen}
+        onClose={() => setDrawerOpen(false)}
+        brochureLink={advancedtech}
+      />
+      
+
+      <Footer1 ref={footerRef} />
       <Footer2 />
     </div>
-  )
-}
+  );
+};
 
 export default Advanced;
+

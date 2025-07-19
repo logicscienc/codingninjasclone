@@ -1,5 +1,7 @@
-import React from "react";
+import React, {useState} from "react";
 import { FaCheck } from "react-icons/fa6";
+import ApplyModal from "./ApplyModal";
+
 
 const perksData = [
   {
@@ -35,7 +37,10 @@ const perksData = [
 ];
 
 const PlansAndPricing = () => {
+   const [showModal, setShowModal] = useState(false);
   return (
+    <>
+     {showModal && <ApplyModal onClose={() => setShowModal(false)} />}
     <div className="max-w-[1000px] mx-auto px-4 py-12">
       <h2 className="text-3xl font-bold text-center mt-12 mb-8">
         Plans and Pricing
@@ -82,7 +87,9 @@ const PlansAndPricing = () => {
             <p className="text-xl font-semibold">
               ₹5911 <span className="text-sm font-normal">/ month</span>
             </p>
-            <button className="mt-2 bg-[#FC652D] text-white px-6 py-2 rounded-md hover:bg-[#e35a24] transition">
+            <button 
+             onClick={() => setShowModal(true)}
+            className="mt-2 bg-[#FC652D] text-white px-6 py-2 rounded-md hover:bg-[#e35a24] transition">
               Apply now
             </button>
           </div>
@@ -91,13 +98,16 @@ const PlansAndPricing = () => {
             <p className="text-xl font-semibold">
               ₹5911 <span className="text-sm font-normal">/ month</span>
             </p>
-            <button className="mt-2 bg-[#FC652D] text-white px-6 py-2 rounded-md hover:bg-[#e35a24] transition">
+            <button
+             onClick={() => setShowModal(true)}
+             className="mt-2 bg-[#FC652D] text-white px-6 py-2 rounded-md hover:bg-[#e35a24] transition">
               Apply now
             </button>
           </div>
         </div>
       </div>
     </div>
+    </>
   );
 };
 

@@ -6,9 +6,8 @@ import futureready from "../sharedSections/images/futureready.svg";
 import callimage from "../sharedSections/images/callimage.jpg";
 import stanford from "../../assets/stanford.png";
 import placement from "../../assets/placement.png";
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
-
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const MainAdvanced = ({ stats }) => {
   const [formData, setFormData] = useState({
@@ -28,13 +27,15 @@ const MainAdvanced = ({ stats }) => {
 
   React.useEffect(() => {
     const handleMessage = (event) => {
-        console.log("Received message:", event.data);
+      console.log("Received message:", event.data);
       if (event.data === "openDrawer") {
         setShowDrawer(true);
       }
-       if (event.data === "callbackSubmitted") {
-      toast.success("We’ve received your request. Our advisor will reach out shortly!");
-    }
+      if (event.data === "callbackSubmitted") {
+        toast.success(
+          "We’ve received your request. Our advisor will reach out shortly!"
+        );
+      }
     };
     window.addEventListener("message", handleMessage);
     return () => window.removeEventListener("message", handleMessage);
@@ -272,10 +273,9 @@ const MainAdvanced = ({ stats }) => {
 </html>
 `;
 
-const newTab = window.open();
-newTab.document.write(html);
-newTab.document.close();
-
+    const newTab = window.open();
+    newTab.document.write(html);
+    newTab.document.close();
   };
 
   return (
@@ -439,7 +439,10 @@ newTab.document.close();
             <h2 className="text-xl font-bold">
               Fill your details to request for callback
             </h2>
-            <button onClick={() => setShowDrawer(false)} className="text-xl text-black">
+            <button
+              onClick={() => setShowDrawer(false)}
+              className="text-xl text-black"
+            >
               &times;
             </button>
           </div>
@@ -448,7 +451,9 @@ newTab.document.close();
             onSubmit={(e) => {
               e.preventDefault();
               // You can handle this submission separately or reuse the same logic
-               toast.success("We’ve received your request. Our advisor will reach out shortly!");
+              toast.success(
+                "We’ve received your request. Our advisor will reach out shortly!"
+              );
               setShowDrawer(false);
             }}
             className="space-y-4"
@@ -550,7 +555,6 @@ newTab.document.close();
         </div>
       )}
       <ToastContainer position="top-right" autoClose={3000} />
-
     </section>
   );
 };

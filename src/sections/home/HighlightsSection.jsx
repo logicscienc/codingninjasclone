@@ -169,7 +169,11 @@ const HighlightsSection = () => {
             {/* row 1 - 2 cards */}
             <div className="flex flex-wrap gap-6 mb-8">
               {/* card 1 */}
-              <div className="bg-white rounded-xl shadow-md overflow-hidden relative border border-orange-300 w-[280px] h-[400px] flex flex-col justify-between">
+              <a 
+              href="/ontheline"
+                target="_blank"
+                rel="noopener noreferrer"
+               className="bg-white rounded-xl shadow-md overflow-hidden relative border border-orange-300 w-[280px] h-[400px] flex flex-col justify-between">
                 <div className="relative px-2 pt-2">
                   <img
                     src={space}
@@ -197,11 +201,15 @@ const HighlightsSection = () => {
                   </div>
                   <span className="ml-auto text-gray-600">6 months</span>
                 </div>
-              </div>
+              </a>
 
               {/* Card 2 */}
 
-              <div className="bg-white rounded-xl shadow-md overflow-hidden relative border border-orange-300 w-[280px] h-[400px] flex flex-col justify-between">
+              <a 
+              href="/dataSci"
+                target="_blank"
+                rel="noopener noreferrer"
+              className="bg-white rounded-xl shadow-md overflow-hidden relative border border-orange-300 w-[280px] h-[400px] flex flex-col justify-between">
                 <div className="relative px-2 pt-2">
                   <img
                     src={space}
@@ -228,7 +236,7 @@ const HighlightsSection = () => {
                   </div>
                   <span className="ml-auto text-gray-600">9 months</span>
                 </div>
-              </div>
+              </a>
             </div>
 
             {/* for college students tag */}

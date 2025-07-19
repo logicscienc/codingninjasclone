@@ -108,7 +108,11 @@ const Header = () => {
 
                   {/* Right Column - Courses stacked vertically */}
                   <div className="w-3/4 flex flex-col gap-8">
-                    <div className="flex gap-4">
+                    <a 
+                    href="/ontheline"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex gap-4">
                       <img
                         src={iitDataImg}
                         alt="IIT Course"
@@ -122,9 +126,13 @@ const Header = () => {
                           PG Certification in Data Analytics with GenAI
                         </h4>
                       </div>
-                    </div>
+                    </a>
 
-                    <div className="flex gap-4">
+                    <a
+                    href="/dataSci"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                     className="flex gap-4">
                       <img
                         src={iitDataImg}
                         alt="IIT Course"
@@ -141,7 +149,7 @@ const Header = () => {
                           PG Certification in Data Science with GenAI
                         </h4>
                       </div>
-                    </div>
+                    </a>
                   </div>
                 </div>
               </div>

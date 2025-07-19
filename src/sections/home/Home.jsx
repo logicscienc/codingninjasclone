@@ -12,7 +12,7 @@ import Footer2 from "../../components/Footer2";
 
 const Home = () => {
   return (
-    <>
+    <div className="overflow-x-hidden">
       <Header />
       <HeroSection />
       <HighlightsSection />
@@ -23,7 +23,7 @@ const Home = () => {
       <Stuck />
       <Footer1 />
       <Footer2 />
-    </>
+    </div>
   );
 };
 
