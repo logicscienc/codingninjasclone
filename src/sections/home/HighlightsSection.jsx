@@ -69,8 +69,9 @@ const HighlightsSection = () => {
 
   return (
     <div
+      id="offerings"
       ref={sectionRef}
-      className="relative flex justify-center bg-white py-20"
+      className="relative flex justify-center bg-white  py-20 min-h-[1000px]"
     >
       {/* Vertical dotted line section */}
       <div className="absolute top-0 left-1/2 -translate-x-[500px] h-full z-10">
@@ -85,11 +86,13 @@ const HighlightsSection = () => {
           />
 
           {/* Bootcamp icon positioned correctly */}
-          <img
-            src={bootcampicon}
-            alt="Bootcamp Icon"
-            className="absolute top-[120px] left-[1px] -translate-x-1/2 w-8 h-8 z-50 bg-white p-1 rounded-full shadow"
-          />
+          <div className="absolute top-[120px] left-1/2 -translate-x-1/2 w-30 h-30 z-50  ">
+            <img
+              src={bootcampicon}
+              alt="Floating Icon"
+              className="w-30 h-30 object-contain"
+            />
+          </div>
 
           {/* IT Certifications aligned icon */}
           {itCertTop > 0 && (
@@ -103,11 +106,13 @@ const HighlightsSection = () => {
         </div>
       </div>
       {/* Icon at the bottom of the dotted line */}
-      <img
-        src={scratch} // or any other image you want to use
-        alt="Bottom Icon"
-        className="absolute bottom-[-60px] left-[1px] -translate-x-1/2 w-8 h-8 z-50 bg-white p-1 rounded-full shadow"
-      />
+      <div className="absolute top-[120px] left-1/2 -translate-x-1/2 w-14 h-14 z-50 border-2 ">
+        <img
+          src={scratch}
+          alt="Floating Icon"
+          className="w-full h-full object-contain"
+        />
+      </div>
 
       {/* Main content */}
       <div className="relative max-w-[1000px] w-full px-4 z-20">
@@ -169,11 +174,12 @@ const HighlightsSection = () => {
             {/* row 1 - 2 cards */}
             <div className="flex flex-wrap gap-6 mb-8">
               {/* card 1 */}
-              <a 
-              href="/ontheline"
+              <a
+                href="/ontheline"
                 target="_blank"
                 rel="noopener noreferrer"
-               className="bg-white rounded-xl shadow-md overflow-hidden relative border border-orange-300 w-[280px] h-[400px] flex flex-col justify-between">
+                className="bg-white rounded-xl shadow-md overflow-hidden relative border border-orange-300 w-[280px] h-[400px] flex flex-col justify-between"
+              >
                 <div className="relative px-2 pt-2">
                   <img
                     src={space}
@@ -205,11 +211,12 @@ const HighlightsSection = () => {
 
               {/* Card 2 */}
 
-              <a 
-              href="/dataSci"
+              <a
+                href="/dataSci"
                 target="_blank"
                 rel="noopener noreferrer"
-              className="bg-white rounded-xl shadow-md overflow-hidden relative border border-orange-300 w-[280px] h-[400px] flex flex-col justify-between">
+                className="bg-white rounded-xl shadow-md overflow-hidden relative border border-orange-300 w-[280px] h-[400px] flex flex-col justify-between"
+              >
                 <div className="relative px-2 pt-2">
                   <img
                     src={space}
@@ -285,11 +292,12 @@ const HighlightsSection = () => {
               </a>
 
               {/* card 4 */}
-              <a 
-              href="/academy"
+              <a
+                href="/academy"
                 target="_blank"
                 rel="noopener noreferrer"
-               className="bg-white rounded-xl shadow-md overflow-hidden relative border border-orange-300 w-[280px] h-[400px] flex flex-col justify-between">
+                className="bg-white rounded-xl shadow-md overflow-hidden relative border border-orange-300 w-[280px] h-[400px] flex flex-col justify-between"
+              >
                 <div className="relative px-2 pt-2">
                   <img
                     src={space}
@@ -319,10 +327,11 @@ const HighlightsSection = () => {
 
               {/* card 5 */}
               <a
-               href="/webdevelopment"
+                href="/webdevelopment"
                 target="_blank"
                 rel="noopener noreferrer"
-               className="bg-white rounded-xl shadow-md overflow-hidden relative border border-orange-300 w-[280px] h-[400px] flex flex-col justify-between">
+                className="bg-white rounded-xl shadow-md overflow-hidden relative border border-orange-300 w-[280px] h-[400px] flex flex-col justify-between"
+              >
                 <div className="relative px-2 pt-2">
                   <img
                     src={output}

@@ -72,126 +72,130 @@ const Main = () => {
     }
   };
   return (
-    <div
-      className="relative"
-    >
+    <div className="relative">
       <ToastContainer />
-       <div
-    className={`bg-gradient-to-br from-[#0e121d] via-[#111827] to-[#1e293b] text-white py-12 px-4 transition-all duration-200 ${
-      showModal ? "blur-sm pointer-events-none" : ""
-    }`}
-  >
-      <div className="bg-gradient-to-br from-[#0e121d] via-[#111827] to-[#1e293b] text-white py-12 px-4">
-        <div className="max-w-[1000px] mx-auto flex flex-col md:flex-row gap-10 items-center justify-between">
-          {/* Left Section */}
-          <div className="max-w-md">
-            <p className="text-sm font-semibold">India's first and only,</p>
-            <h1 className="text-2xl sm:text-3xl font-bold mt-1">
-              Training and Internship Certification in <br />
-              <span className="text-orange-300">
-                Advanced Data Structures and Algorithms
-              </span>
-            </h1>
-            <p className="mt-4 font-semibold text-lg">by</p>
-            <h2 className="text-2xl font-bold mt-1">IITM Pravartak</h2>
-            <img src={Group} alt="IITM x Coding Ninjas" className="h-12 mt-4" />
-            <div className="mt-6">
-              <p className="font-semibold text-white text-lg mb-2">
-                Admission closing soon
-              </p>
-              <div className="flex gap-4 text-center">
-                {[
-                  { label: "Days", value: timeLeft.days },
-                  { label: "Hours", value: timeLeft.hours },
-                  { label: "Minutes", value: timeLeft.minutes },
-                  { label: "Seconds", value: timeLeft.seconds },
-                ].map((item, i) => (
-                  <div key={i}>
-                    <div className="text-2xl font-bold">
-                      {item.value.toString().padStart(2, "0")}
+      <div
+        className={`bg-gradient-to-br from-[#0e121d] via-[#111827] to-[#1e293b] text-white py-12 px-4 transition-all duration-200 ${
+          showModal ? "blur-sm pointer-events-none" : ""
+        }`}
+      >
+        <div className="bg-gradient-to-br from-[#0e121d] via-[#111827] to-[#1e293b] text-white py-12 px-4">
+          <div className="max-w-[1000px] mx-auto flex flex-col md:flex-row gap-10 items-center justify-between">
+            {/* Left Section */}
+            <div className="max-w-md">
+              <p className="text-sm font-semibold">India's first and only,</p>
+              <h1 className="text-2xl sm:text-3xl font-bold mt-1">
+                Training and Internship Certification in <br />
+                <span className="text-orange-300">
+                  Advanced Data Structures and Algorithms
+                </span>
+              </h1>
+              <p className="mt-4 font-semibold text-lg">by</p>
+              <h2 className="text-2xl font-bold mt-1">IITM Pravartak</h2>
+              <img
+                src={Group}
+                alt="IITM x Coding Ninjas"
+                className="h-12 mt-4"
+              />
+              <div className="mt-6">
+                <p className="font-semibold text-white text-lg mb-2">
+                  Admission closing soon
+                </p>
+                <div className="flex gap-4 text-center">
+                  {[
+                    { label: "Days", value: timeLeft.days },
+                    { label: "Hours", value: timeLeft.hours },
+                    { label: "Minutes", value: timeLeft.minutes },
+                    { label: "Seconds", value: timeLeft.seconds },
+                  ].map((item, i) => (
+                    <div key={i}>
+                      <div className="text-2xl font-bold">
+                        {item.value.toString().padStart(2, "0")}
+                      </div>
+                      <div className="text-sm text-gray-300">{item.label}</div>
                     </div>
-                    <div className="text-sm text-gray-300">{item.label}</div>
-                  </div>
-                ))}
+                  ))}
+                </div>
               </div>
             </div>
-          </div>
 
-          {/* Right Section - Form */}
-          <div className="bg-white rounded-lg p-6 w-full max-w-sm text-black">
-            <h2 className="font-bold text-lg mb-1">
-              Book a FREE Webinar. NOW!
-            </h2>
-            <p className="text-red-500 text-sm mb-3">Last few seats left!</p>
+            {/* Right Section - Form */}
+            <div className="bg-white rounded-lg p-6 w-full max-w-sm text-black">
+              <h2 className="font-bold text-lg mb-1">
+                Book a FREE Webinar. NOW!
+              </h2>
+              <p className="text-red-500 text-sm mb-3">Last few seats left!</p>
 
-            {[
-              { label: "Enter your Name", name: "name" },
-              { label: "Enter your email ID", name: "email" },
-              { label: "Enter your Mobile Number", name: "phone" },
-            ].map((field, i) => (
-              <div className="mb-3" key={i}>
-                <input
-                  type="text"
-                  name={field.name}
-                  placeholder={field.label}
-                  value={formData[field.name]}
+              {[
+                { label: "Enter your Name", name: "name" },
+                { label: "Enter your email ID", name: "email" },
+                { label: "Enter your Mobile Number", name: "phone" },
+              ].map((field, i) => (
+                <div className="mb-3" key={i}>
+                  <input
+                    type="text"
+                    name={field.name}
+                    placeholder={field.label}
+                    value={formData[field.name]}
+                    onChange={handleChange}
+                    className="w-full px-3 py-2 border rounded-md"
+                  />
+                  {errors[field.name] && (
+                    <p className="text-red-500 text-xs mt-1">
+                      {errors[field.name]}
+                    </p>
+                  )}
+                </div>
+              ))}
+
+              <div className="mb-3">
+                <select
+                  name="experience"
+                  value={formData.experience}
                   onChange={handleChange}
-                  className="w-full px-3 py-2 border rounded-md"
-                />
-                {errors[field.name] && (
+                  className="w-full px-3 py-2 border rounded-md text-gray-700"
+                >
+                  <option value="">Experience</option>
+                  <option value="College Student 1st Year">
+                    College Student 1st Year
+                  </option>
+                  <option value="College Student 2nd Year">
+                    College Student 2nd Year
+                  </option>
+                  <option value="College Student 3rd Year">
+                    College Student 3rd Year
+                  </option>
+                  <option value="College Student 4th Year">
+                    College Student 4th Year
+                  </option>
+                  <option value="Working Professional">
+                    Working Professional
+                  </option>
+                </select>
+                {errors.experience && (
                   <p className="text-red-500 text-xs mt-1">
-                    {errors[field.name]}
+                    {errors.experience}
                   </p>
                 )}
               </div>
-            ))}
 
-            <div className="mb-3">
-              <select
-                name="experience"
-                value={formData.experience}
-                onChange={handleChange}
-                className="w-full px-3 py-2 border rounded-md text-gray-700"
+              <button
+                onClick={handleSubmit}
+                className="w-full bg-gradient-to-r from-orange-400 to-orange-500 text-white font-semibold py-2 rounded-md"
               >
-                <option value="">Experience</option>
-                <option value="College Student 1st Year">
-                  College Student 1st Year
-                </option>
-                <option value="College Student 2nd Year">
-                  College Student 2nd Year
-                </option>
-                <option value="College Student 3rd Year">
-                  College Student 3rd Year
-                </option>
-                <option value="College Student 4th Year">
-                  College Student 4th Year
-                </option>
-                <option value="Working Professional">
-                  Working Professional
-                </option>
-              </select>
-              {errors.experience && (
-                <p className="text-red-500 text-xs mt-1">{errors.experience}</p>
-              )}
+                Continue booking webinar
+              </button>
+
+              <p className="text-xs text-gray-600 mt-3">
+                I authorise Coding Ninjas to contact me with course updates &
+                offers via Email /SMS /WhatsApp/ Call. I have read and agree to
+                the
+                <span className="text-orange-600"> Privacy Policy </span>&
+                <span className="text-orange-600"> Terms of use</span>.
+              </p>
             </div>
-
-            <button
-              onClick={handleSubmit}
-              className="w-full bg-gradient-to-r from-orange-400 to-orange-500 text-white font-semibold py-2 rounded-md"
-            >
-              Continue booking webinar
-            </button>
-
-            <p className="text-xs text-gray-600 mt-3">
-              I authorise Coding Ninjas to contact me with course updates &
-              offers via Email /SMS /WhatsApp/ Call. I have read and agree to
-              the
-              <span className="text-orange-600"> Privacy Policy </span>&
-              <span className="text-orange-600"> Terms of use</span>.
-            </p>
           </div>
         </div>
-      </div>
       </div>
       {/* Floating Modal */}
       {showModal && (
@@ -204,7 +208,7 @@ const Main = () => {
               ×
             </button>
             <div className="text-center mb-4">
-              <img src={pc_Icon} className="h-10 w-10"/>
+              <img src={pc_Icon} className="h-10 w-10" />
               <h3 className="font-bold text-lg">Select Webinar Slot</h3>
               <p className="text-sm">Complete your registration</p>
             </div>

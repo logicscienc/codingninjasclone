@@ -90,7 +90,7 @@ const Header = () => {
                   IIT Certifications <RiArrowDropDownLine size={30} />
                 </li>
 
-                <div className="absolute top-full left-0 mt-2 w-screen h-[50vh] bg-white rounded-bl-xl shadow-2xl px-16 py-10 gap-16 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50 flex">
+                <div className="absolute right-0 top-full left-0 mt-2 w-screen h-[50vh] bg-white rounded-bl-xl shadow-2xl px-16 py-10 gap-16 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50 flex">
                   {/* Left Column */}
                   <div className="w-1/4 pr-10">
                     <p className="text-sm text-gray-500 font-semibold mb-6">
@@ -161,7 +161,7 @@ const Header = () => {
                 </li>
 
                 {/* dropdown */}
-                <div className="absolute left-[-120px] top-full mt-2 bg-white rounded-xl shadow-xl p-4 w-[400px] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+                <div className="absolute left-[-120px] top-full mt-2 bg-white rounded-xl shadow-xl p-4 w-[500px] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
                   <p className="text-[13px] font-semibold text-gray-500 mb-4">
                     For graduates
                   </p>

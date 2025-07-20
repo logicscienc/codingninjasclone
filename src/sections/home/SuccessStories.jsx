@@ -302,7 +302,15 @@ const SuccessStories = () => {
             </div>
           ))}
         </div>
-        <button className="mt-10  mb-20 mx-auto bg-orange-500 hover:bg-orange-600 text-white px-8 py-3 rounded-sm flex items-center gap-2">
+        <button
+          onClick={() => {
+            const el = document.getElementById("offerings");
+            if (el) {
+              el.scrollIntoView({ behavior: "smooth" });
+            }
+          }}
+          className="mt-10  mb-20 mx-auto bg-orange-500 hover:bg-orange-600 text-white px-8 py-3 rounded-sm flex items-center gap-2"
+        >
           Explore Offerings
           <MdKeyboardDoubleArrowUp className="text-white text-lg" />
         </button>
@@ -327,7 +335,7 @@ const SuccessStories = () => {
             <div className="flex flex-wrap justify-center gap-10 text-white">
               {/* Facebook */}
               <div className="flex flex-col items-center">
-                <FaFacebookSquare  className="w-10 h-10 mb-2" />
+                <FaFacebookSquare className="w-10 h-10 mb-2" />
                 <p className="text-lg font-semibold">4.9 ⭐</p>
                 <p className="text-sm text-gray-400">700+ reviews</p>
               </div>
@@ -341,11 +349,7 @@ const SuccessStories = () => {
 
               {/* Coding Ninjas */}
               <div className="flex flex-col items-center">
-                <img
-                  src={c}
-                  alt="coding ninjas"
-                  className="w-10 h-10 mb-2"
-                />
+                <img src={c} alt="coding ninjas" className="w-10 h-10 mb-2" />
                 <p className="text-lg font-semibold">4.8 ⭐</p>
                 <p className="text-sm text-gray-400">Course rating</p>
               </div>

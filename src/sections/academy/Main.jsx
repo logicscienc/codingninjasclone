@@ -87,13 +87,13 @@ const Main = () => {
           <div className="max-w-md">
             <p className="text-sm font-semibold">India's first and only,</p>
             <h1 className="text-2xl sm:text-3xl font-bold mt-1">
-              Training and Internship Certification in <br />
+              Student Training cum Internship <br />
               <span className="text-orange-300">
-                Full Stack Web Development with Generative AI + DSA
+                 Program in Data Analytics with Gen AI
               </span>
             </h1>
             <p className="mt-4 font-semibold text-lg">by</p>
-            <h2 className="text-2xl font-bold mt-1">IITM Pravartak</h2>
+            <h2 className="text-2xl font-bold mt-1">E&ICT Academy, IIT Guwahati</h2>
             <img src={groupof2} alt="IITM x Coding Ninjas" className="h-20 mt-4" />
             <div className="mt-6">
               <p className="font-semibold text-white text-lg mb-2">

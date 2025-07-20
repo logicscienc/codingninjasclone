@@ -5,6 +5,7 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 
+// Import images
 import sql from "./img/sql.png";
 import chatgpt from "./img/chatgpt.webp";
 import excel from "./img/excel.png";
@@ -13,6 +14,7 @@ import numpy from "./img/numpy.png";
 import pandas from "./img/pandas.png";
 import python from "./img/python.png";
 
+// List of tech logos
 const techLogos = [
   { src: numpy, alt: "NumPy" },
   { src: excel, alt: "Excel" },
@@ -29,7 +31,6 @@ const Carasol = () => {
       <Swiper
         modules={[Navigation, Pagination, Autoplay]}
         spaceBetween={20}
-        slidesPerView={4}
         loop={true}
         autoplay={{ delay: 2000, disableOnInteraction: false }}
         navigation={{
@@ -39,27 +40,38 @@ const Carasol = () => {
         pagination={{ clickable: true }}
         breakpoints={{
           320: { slidesPerView: 2 },
-          640: { slidesPerView: 3 },
+          480: { slidesPerView: 3 },
           768: { slidesPerView: 4 },
+          1024: { slidesPerView: 5 },
         }}
       >
         {techLogos.map((item, index) => (
           <SwiperSlide key={index}>
             <div className="flex justify-center items-center">
-              <img src={item.src} alt={item.alt} className="h-14 object-contain" />
+              <img
+                src={item.src}
+                alt={item.alt}
+                className="h-12 md:h-14 object-contain mx-auto"
+              />
             </div>
           </SwiperSlide>
         ))}
       </Swiper>
 
-      <div className="flex justify-between mt-4 px-4">
-        <div className="swiper-button-prev cursor-pointer text-3xl font-bold text-gray-600">&lt;</div>
-        <div className="swiper-button-next cursor-pointer text-3xl font-bold text-gray-600">&gt;</div>
+      {/* Navigation Buttons */}
+      <div className="flex justify-between items-center mt-6 px-4 md:px-8">
+        <div className="swiper-button-prev text-3xl text-gray-600 font-bold cursor-pointer hover:text-black transition">
+          &lt;
+        </div>
+        <div className="swiper-button-next text-3xl text-gray-600 font-bold cursor-pointer hover:text-black transition">
+          &gt;
+        </div>
       </div>
     </div>
   );
 };
 
 export default Carasol;
+
 
 

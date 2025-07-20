@@ -15,7 +15,7 @@ import Logo from "../../assets/logo.svg";
 import { MdKeyboardDoubleArrowUp } from "react-icons/md";
 import { RxCross1 } from "react-icons/rx";
 import { TiTick } from "react-icons/ti";
-import checklist from '../../assets/checklist.svg';
+import checklist from "../../assets/checklist.svg";
 
 // Animation variants
 const item = {
@@ -201,7 +201,15 @@ const AlumniSection = () => {
         via our placement cell
       </motion.div>
 
-      <button className="mt-20 bg-orange-500 hover:bg-orange-600 text-white px-8 py-3 rounded-sm flex items-center gap-2">
+      <button
+        onClick={() => {
+          const el = document.getElementById("offerings");
+          if (el) {
+            el.scrollIntoView({ behavior: "smooth" });
+          }
+        }}
+        className="mt-20 bg-orange-500 hover:bg-orange-600 text-white px-8 py-3 rounded-sm flex items-center gap-2"
+      >
         Explore Offerings
         <MdKeyboardDoubleArrowUp className="text-white text-lg" />
       </button>
@@ -278,13 +286,10 @@ const AlumniSection = () => {
 
       {/* advantage comparision table */}
       <div className="w-full bg-[#0F0F0F] py-20 px-4 flex flex-col items-center">
-
         <h2 className="text-center text-blue-500 font-semibold mb-8 mt-4 text-xl">
-            The Coding Ninjas advantage
-          </h2>
+          The Coding Ninjas advantage
+        </h2>
         <div className="w-full max-w-[1000px] border border-gray-700 rounded-2xl overflow-hidden">
-         
-
           <div>
             <div className="grid grid-cols-4 bg-[#141414] text-left py-4 px-6 border-b border-gray-700 font-semibold text-sm md-text-base">
               <div></div>
@@ -308,8 +313,8 @@ const AlumniSection = () => {
                   <img src={checklist} className="w-6 h-6" />
                 </div>
                 <div className="flex justify-center">
-            <RxCross1 className="text-gray-500 text-lg" />
-          </div>
+                  <RxCross1 className="text-gray-500 text-lg" />
+                </div>
 
                 <div className="text-center flex justify-center items-center">
                   {idx === 0 ? (
@@ -348,7 +353,15 @@ const AlumniSection = () => {
           </div>
         </div>
       </div>
-      <button className="mt-10 mb-20 bg-orange-500 hover:bg-orange-600 text-white px-8 py-3 rounded-sm flex items-center gap-2">
+      <button
+        onClick={() => {
+          const el = document.getElementById("offerings");
+          if (el) {
+            el.scrollIntoView({ behavior: "smooth" });
+          }
+        }}
+        className="mt-10 mb-20 bg-orange-500 hover:bg-orange-600 text-white px-8 py-3 rounded-sm flex items-center gap-2"
+      >
         Explore Offerings
         <MdKeyboardDoubleArrowUp className="text-white text-lg" />
       </button>
