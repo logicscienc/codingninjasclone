@@ -78,20 +78,18 @@ const AccordionItem = ({ module }) => {
   const [open, setOpen] = useState(false);
 
   return (
-    <div className="border-b border-gray-400 py-3">
+    <div className="border-b border-gray-300 py-2">
       <button
         onClick={() => setOpen(!open)}
-        className="w-full text-left flex justify-between items-center text-lg font-semibold"
+        className="w-full flex justify-between items-center text-left text-base sm:text-lg font-semibold text-gray-800"
       >
         <span>{module.title}</span>
-        <span className="text-gray-600">
-          {open ? <FaChevronUp /> : <FaChevronDown />}
-        </span>
+        <span className="text-gray-500">{open ? <FaChevronUp /> : <FaChevronDown />}</span>
       </button>
       {open && (
-        <ul className="mt-2 ml-4 list-disc text-gray-700 text-sm space-y-1">
-          {module.content.map((item, i) => (
-            <li key={i}>{item}</li>
+        <ul className="mt-2 ml-4 list-disc text-sm sm:text-base text-gray-700 space-y-1">
+          {module.content.map((item, index) => (
+            <li key={index}>{item}</li>
           ))}
         </ul>
       )}
@@ -101,8 +99,8 @@ const AccordionItem = ({ module }) => {
 
 const ProgramModules = () => {
   return (
-    <div className="max-w-[1000px] mx-auto px-4 py-10">
-      <h2 className="text-3xl font-bold text-center mb-6">
+    <div className="max-w-[1000px] mx-auto px-4 sm:px-6 py-10">
+      <h2 className="text-2xl sm:text-3xl font-bold text-center mb-6">
         Program <span className="text-blue-600">Modules</span>
       </h2>
 
@@ -116,4 +114,5 @@ const ProgramModules = () => {
 };
 
 export default ProgramModules;
+
 

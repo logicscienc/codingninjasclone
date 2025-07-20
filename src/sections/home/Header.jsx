@@ -108,11 +108,12 @@ const Header = () => {
 
                   {/* Right Column - Courses stacked vertically */}
                   <div className="w-3/4 flex flex-col gap-8">
-                    <a 
-                    href="/ontheline"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex gap-4">
+                    <a
+                      href="/ontheline"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex gap-4"
+                    >
                       <img
                         src={iitDataImg}
                         alt="IIT Course"
@@ -129,10 +130,11 @@ const Header = () => {
                     </a>
 
                     <a
-                    href="/dataSci"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                     className="flex gap-4">
+                      href="/dataSci"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex gap-4"
+                    >
                       <img
                         src={iitDataImg}
                         alt="IIT Course"
@@ -194,7 +196,7 @@ const Header = () => {
 
           {/* Login Button */}
           {isLoggedIn ? (
-            <div className="relative flex items-center gap-2">
+            <div className="relative flex items-center gap-2 group">
               <button className="bg-white border border-black hover:bg-gray-100 text-black px-4 py-2 rounded-lg font-semibold">
                 My Classroom
               </button>
@@ -205,44 +207,50 @@ const Header = () => {
                 onMouseEnter={() => setShowProfileDropdown(true)}
                 onMouseLeave={() => setShowProfileDropdown(false)}
               >
+                {/* Avatar */}
                 <img
                   src={`https://api.dicebear.com/6.x/initials/svg?seed=${email}`}
                   alt="Profile"
                   className="h-8 w-8 rounded-full cursor-pointer"
                 />
 
-                {/* Profile Dropdown */}
-                {showProfileDropdown && (
-                  <div className="absolute top-12 right-0 w-72 bg-white rounded-xl shadow-xl p-6 z-50 transition duration-200 ease-in-out">
-                    <div className="flex items-center gap-3 mb-4">
-                      <img
-                        src={`https://api.dicebear.com/6.x/initials/svg?seed=${email}`}
-                        alt="Profile"
-                        className="h-10 w-10 rounded-full"
-                      />
-                      <div>
-                        <p className="font-medium text-gray-800 text-sm">
-                          {name || email}
-                        </p>
-                      </div>
-                    </div>
-                    <div className="flex items-center justify-between">
-                      <button
-                        onClick={() => {
-                          setIsLoggedIn(false);
-                          setEmail("");
-                           localStorage.removeItem("userEmail");
-                          setShowLogin(true); // Reopen login drawer
-                          setShowProfileDropdown(false);
-                        }}
-                        className="text-orange-500 font-semibold hover:underline text-sm"
-                      >
-                        Logout
-                      </button>
-                      <p className="text-sm text-gray-500">Asia - Calcutta</p>
+                {/* Dropdown: always rendered to prevent flicker */}
+                <div
+                  className={`absolute top-12 right-0 w-72 bg-white rounded-xl shadow-xl p-6 z-50 transition-all duration-200 ease-in-out
+      ${
+        showProfileDropdown
+          ? "opacity-100 visible scale-100"
+          : "opacity-0 invisible scale-95"
+      }`}
+                >
+                  <div className="flex items-center gap-3 mb-4">
+                    <img
+                      src={`https://api.dicebear.com/6.x/initials/svg?seed=${email}`}
+                      alt="Profile"
+                      className="h-10 w-10 rounded-full"
+                    />
+                    <div>
+                      <p className="font-medium text-gray-800 text-sm">
+                        {email}
+                      </p>
                     </div>
                   </div>
-                )}
+                  <div className="flex items-center justify-between">
+                    <button
+                      onClick={() => {
+                        setIsLoggedIn(false);
+                        setEmail("");
+                        localStorage.removeItem("userEmail");
+                        setShowLogin(true);
+                        setShowProfileDropdown(false);
+                      }}
+                      className="text-orange-500 font-semibold hover:underline text-sm"
+                    >
+                      Logout
+                    </button>
+                    <p className="text-sm text-gray-500">Asia - Calcutta</p>
+                  </div>
+                </div>
               </div>
             </div>
           ) : (
@@ -310,7 +318,7 @@ const Header = () => {
                     if (email) {
                       setIsLoggedIn(true);
                       setShowLogin(false);
-                      localStorage.setItem("userEmail", email); 
+                      localStorage.setItem("userEmail", email);
                     }
                   }}
                   className={`w-full py-2 rounded-md font-semibold flex justify-center items-center gap-2 transition-colors ${

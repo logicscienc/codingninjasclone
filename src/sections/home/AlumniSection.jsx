@@ -369,4 +369,5 @@ const AlumniSection = () => {
   );
 };
 
-export default AlumniSection;
+export default AlumniSection; 
+

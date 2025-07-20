@@ -87,7 +87,7 @@ const Enrollement = () => {
             />
           </div>
         </div>
-        <div className="bg-white mt-6 rounded-xl p-6 shadow-md flex flex-col md:flex-row gap-6">
+        <div className="bg-white mt-6 rounded-xl p-4 sm:p-6 shadow-md flex flex-col md:flex-row gap-6">
           {/* Left - Form */}
           <div className="flex-1">
             <div className="flex items-start gap-4 mb-6">
@@ -246,7 +246,7 @@ const Enrollement = () => {
           </div>
 
           {/* Right - Benefits Section */}
-          <div className="bg-[#f7f7f7] p-6 rounded-xl text-sm w-full md:w-[280px]">
+          <div className="bg-[#f7f7f7] p-6 rounded-xl text-sm w-full md:w-[320px]">
             <h3 className="font-semibold text-gray-800 mb-4">
               Become industry-ready
             </h3>
@@ -254,16 +254,16 @@ const Enrollement = () => {
               #CertifiedDSAExpert
             </p>
             <ul className="space-y-3 text-gray-700 text-sm">
-              <li>
-                <img src={alumni} className="h-6 w-6" /> Orientation &
+              <li className="flex gap-2 items-start">
+                <img src={alumni} className="h-5 w-5 mt-1" /> Orientation &
                 Graduation Ceremony on campus
               </li>
-              <li>
-                <img src={career} className="h-6 w-6" /> Exclusive access to 10X
+              <li className="flex gap-2 items-start">
+                <img src={career} className="h-5 w-5 mt-1" /> Exclusive access to 10X
                 club activities
               </li>
-              <li>
-                <img src={group} className="h-6 w-6" /> 1:1 Industry expert
+              <li className="flex gap-2 items-start">
+                <img src={group} className="h-5 w-5 mt-1" /> 1:1 Industry expert
                 sessions
               </li>
             </ul>
@@ -275,7 +275,7 @@ const Enrollement = () => {
             </button>
           </div>
         </div>
-        <div ref={faqRef} className="max-w-[700px] mx-auto mt-12 mb-10 px-4">
+        <div ref={faqRef} className="max-w-[700px] mx-auto mt-12 mb-10 px-4 sm:px-6">
           <h2 className="text-center text-2xl font-bold mb-6">FAQ’s</h2>
           {faqData.map((item, index) => (
             <div key={index} className=" rounded-md mb-3 bg-white">

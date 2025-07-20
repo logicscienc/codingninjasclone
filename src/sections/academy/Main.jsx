@@ -82,9 +82,9 @@ const Main = () => {
     }`}
   >
       <div className="bg-gradient-to-br from-[#0e121d] via-[#111827] to-[#1e293b] text-white py-12 px-4">
-        <div className="max-w-[1000px] mx-auto flex flex-col md:flex-row gap-10 items-center justify-between">
+        <div className="max-w-[1000px] mx-auto flex flex-col lg:flex-row gap-10 items-center lg:items-start justify-between px-4 sm:px-6">
           {/* Left Section */}
-          <div className="max-w-md">
+          <div className="max-w-md text-center lg:text-left">
             <p className="text-sm font-semibold">India's first and only,</p>
             <h1 className="text-2xl sm:text-3xl font-bold mt-1">
               Student Training cum Internship <br />
@@ -94,7 +94,7 @@ const Main = () => {
             </h1>
             <p className="mt-4 font-semibold text-lg">by</p>
             <h2 className="text-2xl font-bold mt-1">E&ICT Academy, IIT Guwahati</h2>
-            <img src={groupof2} alt="IITM x Coding Ninjas" className="h-20 mt-4" />
+            <img src={groupof2} alt="IITM x Coding Ninjas" className="h-20  w-full max-w-[250px] mt-4"  />
             <div className="mt-6">
               <p className="font-semibold text-white text-lg mb-2">
                 Admission closing soon
@@ -118,7 +118,7 @@ const Main = () => {
           </div>
 
           {/* Right Section - Form */}
-          <div className="bg-white rounded-lg p-6 w-full max-w-sm text-black">
+          <div className="bg-white rounded-lg p-5 sm:p-6 w-full max-w-sm text-black shadow-md">
             <h2 className="font-bold text-lg mb-1">
               Book a FREE Webinar. NOW!
             </h2>
@@ -196,7 +196,7 @@ const Main = () => {
       {/* Floating Modal */}
       {showModal && (
         <div className="fixed inset-0 bg-black bg-opacity-40 flex items-center justify-center z-50">
-          <div className="bg-[#111827] text-white p-6 rounded-lg w-[90%] max-w-md shadow-lg relative">
+          <div className="bg-[#111827] text-white p-4 sm:p-6 rounded-lg w-[92%] max-w-md shadow-lg relative mx-auto">
             <button
               className="absolute top-2 right-3 text-white text-xl"
               onClick={() => setShowModal(false)}
