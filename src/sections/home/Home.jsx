@@ -12,19 +12,20 @@ import Footer2 from "../../components/Footer2";
 
 const Home = () => {
   return (
-    <div className="overflow-x-hidden">
+    <>
       <Header />
-      <HeroSection />
-       {/* <div className="h-[1500px] bg-gray-100"></div>  */}
-      <HighlightsSection />
-      <AlumniSection />
-      <NinjasAtTopCompanies />
-      <SuccessStories />
-      <LearningModel />
-      <Stuck />
-      <Footer1 />
-      <Footer2 />
-    </div>
+      <main className="w-full overflow-x-hidden">
+        <HeroSection />
+        <HighlightsSection />
+        <AlumniSection />
+        <NinjasAtTopCompanies />
+        <SuccessStories />
+        <LearningModel />
+        <Stuck />
+        <Footer1 />
+        <Footer2 />
+      </main>
+    </>
   );
 };
 

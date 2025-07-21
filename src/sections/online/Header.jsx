@@ -8,7 +8,7 @@ const Header = ({ onDownloadClick }) => {
   return (
     <header className="sticky top-0 z-50 bg-white shadow-md">
       <nav className="relative w-full">
-        <div className="max-w-[1000px] mx-auto px-4 py-3 flex justify-between items-center">
+        <div className="max-w-[1000px] mx-auto px-4 py-3 flex flex-col sm:flex-row justify-between items-center gap-4 sm:gap-0">
           {/* Left side: logo and icon */}
           <div className="flex items-center gap-4">
             <Link to="/">
@@ -19,7 +19,7 @@ const Header = ({ onDownloadClick }) => {
 
           <button 
            onClick={onDownloadClick} 
-            className="text-white bg-orange-500 px-4 py-2 rounded font-semibold hover:bg-amber-700 cursor-pointer text-sm">
+            className="text-white bg-orange-500 px-4 py-2 rounded font-semibold hover:bg-amber-700 cursor-pointer text-sm w-full sm:w-auto">
             Download brochure
           </button>
         </div>

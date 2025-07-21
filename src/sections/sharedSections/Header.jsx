@@ -8,7 +8,7 @@ const Header = () => {
   return (
     <header className="sticky top-0 z-50 bg-white shadow-md">
       <nav className="relative w-full">
-        <div className="max-w-[1000px] mx-auto px-4 py-3 flex justify-between items-center">
+        <div className="max-w-[1000px] mx-auto px-4 py-3 flex flex-col sm:flex-row  justify-between items-center gap-4 sm:gap-0">
           {/* Left side: logo and icon */}
           <div className="flex items-center gap-4">
             <Link to="/">
@@ -18,7 +18,9 @@ const Header = () => {
           </div>
 
           {/* Right side: button */}
-          <RequestCallbackButton/>
+           <div className="w-full sm:w-auto">
+            <RequestCallbackButton />
+          </div>
         </div>
       </nav>
     </header>

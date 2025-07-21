@@ -234,7 +234,7 @@ const SuccessStories = () => {
       {/* Content Area (1100px) */}
       <div className="relative max-w-[1100px] w-full px-4 z-20">
         {/* Your content here */}
-        <div className="flex items-center justify-between mb-10 ml-[calc(50%-500px+36px)]  mt-12">
+        <div className="flex items-center justify-between mb-10 px-4 md:ml-[calc(50%-500px+36px)] mt-12">
           <h2 className="text-white text-xl md:text-xl font-semibold ml-1">
             Stories from people like you
           </h2>
