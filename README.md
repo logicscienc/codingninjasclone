@@ -62,6 +62,12 @@ This project was created as a hands-on challenge to replicate a real-world edtec
 
 - Inspired by the original [Coding Ninjas](https://www.codingninjas.com/) website.
 
+## Live Demo
+
+You can check out the live version of this project here:  
+[https://luminous-klepon-115574.netlify.app](https://luminous-klepon-115574.netlify.app)
+
+
  
  
 
